@@ -1,2 +1,2 @@
-# GitClient
+# FairyGit
 Git Client implemented with flutter
