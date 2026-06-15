@@ -28,13 +28,23 @@
 }
 
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:#fff;color:var(--dark);line-height:1.6;font-size:16px}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:#fff;color:var(--dark);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
 img{display:block;width:100%;object-fit:cover}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
 input,select,textarea{font-family:inherit}
 .container{max-width:1240px;margin:0 auto;padding:0 20px}
+
+/* ── TYPOGRAPHY ── */
+h1,h2,h3,h4{font-family:'Nunito Sans',system-ui,sans-serif;letter-spacing:-.02em}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.12}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;line-height:1.2}
+h3{font-size:1.05rem;font-weight:700}
+
+/* Section title with immobiliare.it serif accent */
+.section-title{font-family:'Nunito Sans',system-ui,sans-serif;font-weight:900;letter-spacing:-.03em}
+.section-title .serif{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-style:italic;color:var(--gold)}
 
 /* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:var(--rs);font-size:.88rem;font-weight:600;transition:var(--t);white-space:nowrap;cursor:pointer}
@@ -67,7 +77,7 @@ input,select,textarea{font-family:inherit}
 .logo-link{flex-shrink:0}
 
 .nav-links{display:flex;gap:4px;margin-left:auto}
-.nav-a{padding:8px 13px;border-radius:6px;font-size:.84rem;font-weight:500;color:var(--navy);transition:var(--t)}
+.nav-a{padding:8px 13px;border-radius:6px;font-size:.84rem;font-weight:700;font-family:'Nunito Sans',sans-serif;color:var(--navy);transition:var(--t)}
 .nav-a:hover{background:rgba(13,27,46,.06);color:var(--gold)}
 
 .nav-actions{display:flex;align-items:center;gap:12px;margin-left:10px}
@@ -91,14 +101,14 @@ input,select,textarea{font-family:inherit}
 .dot{width:7px;height:7px;background:var(--gold3);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-.hero-text h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:#fff;line-height:1.18;margin-bottom:16px}
+.hero-text h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;line-height:1.12;margin-bottom:16px;letter-spacing:-.04em}
 .hero-text p{color:rgba(255,255,255,.72);font-size:1.05rem;margin-bottom:40px;max-width:480px;line-height:1.7}
 
 /* Search Box – immobiliare.it style */
 .search-box{background:#fff;border-radius:var(--r);box-shadow:0 16px 48px rgba(0,0,0,.25);overflow:hidden;max-width:860px;margin-bottom:40px}
 
 .search-tabs{display:flex;border-bottom:1px solid var(--border)}
-.stab{flex:1;padding:13px;font-size:.88rem;font-weight:600;color:var(--gray);border-bottom:3px solid transparent;transition:var(--t);text-align:center}
+.stab{flex:1;padding:13px;font-size:.88rem;font-weight:700;font-family:'Nunito Sans',sans-serif;color:var(--gray);border-bottom:3px solid transparent;transition:var(--t);text-align:center}
 .stab:hover{color:var(--navy);background:rgba(13,27,46,.03)}
 .stab.active{color:var(--gold);border-bottom-color:var(--gold);background:rgba(201,162,39,.04)}
 
@@ -107,17 +117,17 @@ input,select,textarea{font-family:inherit}
 .search-field{display:flex;flex-direction:column;gap:4px;flex:1;padding:0 12px;border-right:1px solid var(--border)}
 .search-field:first-child{padding-left:0}
 .search-field.big{flex:1.8}
-.search-field label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray)}
-.search-field input,.search-field select{border:none;outline:none;font-size:.92rem;color:var(--dark);background:none;padding:4px 0;-webkit-appearance:none}
+.search-field label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);font-family:'Nunito Sans',sans-serif}
+.search-field input,.search-field select{border:none;outline:none;font-size:.95rem;font-family:'Nunito Sans',sans-serif;font-weight:600;color:var(--dark);background:none;padding:4px 0;-webkit-appearance:none}
 .search-field select{cursor:pointer}
 
-.btn-search{display:flex;align-items:center;gap:8px;background:var(--gold);color:#fff;padding:13px 22px;border-radius:var(--rs);font-size:.9rem;font-weight:700;transition:var(--t);white-space:nowrap;margin-left:14px;flex-shrink:0}
+.btn-search{display:flex;align-items:center;gap:8px;background:var(--gold);color:#fff;padding:13px 22px;border-radius:var(--rs);font-size:.9rem;font-weight:800;font-family:'Nunito Sans',sans-serif;letter-spacing:.02em;transition:var(--t);white-space:nowrap;margin-left:14px;flex-shrink:0}
 .btn-search:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 4px 18px rgba(201,162,39,.4)}
 
 /* Counters */
 .hero-counters{display:flex;gap:32px;flex-wrap:wrap}
 .hc{color:#fff}
-.hc b{display:block;font-size:1.6rem;font-weight:800;color:var(--gold3)}
+.hc b{display:block;font-size:1.6rem;font-weight:900;color:var(--gold3);letter-spacing:-.03em}
 .hc span{font-size:.78rem;color:rgba(255,255,255,.6)}
 
 /* ═══ QUICK FILTER BAR ═══ */
@@ -127,7 +137,7 @@ input,select,textarea{font-family:inherit}
 
 .qf-label{font-size:.78rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;margin-right:4px}
 
-.qf-btn{padding:6px 14px;border-radius:99px;font-size:.82rem;font-weight:500;color:var(--navy);border:1.5px solid var(--border);transition:var(--t)}
+.qf-btn{padding:6px 14px;border-radius:99px;font-size:.82rem;font-weight:700;font-family:'Nunito Sans',sans-serif;color:var(--navy);border:1.5px solid var(--border);transition:var(--t)}
 .qf-btn:hover{border-color:var(--gold);color:var(--gold)}
 .qf-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 
@@ -178,12 +188,12 @@ input,select,textarea{font-family:inherit}
 .ph-btn:hover,.ph-btn.saved{color:#ef4444;transform:scale(1.1)}
 .ph-btn.saved svg{fill:#ef4444}
 
-.pcard-price{position:absolute;bottom:12px;left:12px;background:var(--navy);color:var(--gold);padding:5px 13px;border-radius:var(--rs);font-size:.95rem;font-weight:800}
+.pcard-price{position:absolute;bottom:12px;left:12px;background:var(--navy);color:var(--gold);padding:5px 13px;border-radius:var(--rs);font-size:.95rem;font-weight:900;font-family:'Nunito Sans',sans-serif;letter-spacing:-.02em}
 .pcard-price small{font-size:.7rem;font-weight:500;color:rgba(255,255,255,.7)}
 
 /* ── Card body ── */
 .pcard-body{padding:16px 18px;display:flex;flex-direction:column;flex:1}
-.pcard-body h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.pcard-body h3{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:6px;line-height:1.3;letter-spacing:-.02em}
 .pcard-loc{display:flex;align-items:center;gap:5px;font-size:.8rem;color:var(--gray);margin-bottom:10px}
 .pcard-loc svg{color:var(--gold);flex-shrink:0}
 .pcard-specs{display:flex;gap:10px;flex-wrap:wrap;padding:10px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:10px;font-size:.78rem;color:var(--gray)}
@@ -235,7 +245,7 @@ input,select,textarea{font-family:inherit}
 
 .srv-num{font-size:2rem;font-weight:800;color:rgba(201,162,39,.25);line-height:1;margin-bottom:12px}
 .srv-icon{font-size:2rem;margin-bottom:14px}
-.srv-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:10px}
+.srv-card h3{font-size:1rem;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-.02em}
 .srv-card p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.65}
 
 /* ═══ WHY US ═══ */
@@ -250,11 +260,11 @@ input,select,textarea{font-family:inherit}
 .why-logo-float img{height:130px;width:130px;object-fit:cover}
 
 .why-eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
-.why-text h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--navy);line-height:1.22;margin-bottom:18px}
+.why-text h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--navy);line-height:1.18;margin-bottom:18px;letter-spacing:-.04em}
 .why-lead{color:var(--gray);font-size:.95rem;line-height:1.7;margin-bottom:28px;max-width:480px}
 
 .why-stats{display:flex;gap:28px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border)}
-.wstat b{display:block;font-size:1.6rem;font-weight:800;color:var(--navy)}
+.wstat b{display:block;font-size:1.6rem;font-weight:900;color:var(--navy);letter-spacing:-.04em}
 .wstat span{font-size:.78rem;color:var(--gray)}
 
 .why-checks{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
@@ -284,13 +294,13 @@ input,select,textarea{font-family:inherit}
 
 /* Form */
 .contact-form{background:#fff;border-radius:var(--r);padding:36px;display:flex;flex-direction:column;gap:18px}
-.contact-form h3{font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.contact-form h3{font-size:1.2rem;font-weight:900;color:var(--navy);margin-bottom:4px;letter-spacing:-.03em}
 
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 
 .fg{display:flex;flex-direction:column;gap:6px}
-.fg label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray)}
-.fg input,.fg select,.fg textarea{border:1.5px solid var(--border);border-radius:var(--rs);padding:11px 14px;font-size:.9rem;color:var(--dark);outline:none;transition:border-color var(--t);resize:none;background:#fff;-webkit-appearance:none}
+.fg label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);font-family:'Nunito Sans',sans-serif}
+.fg input,.fg select,.fg textarea{border:1.5px solid var(--border);border-radius:var(--rs);padding:11px 14px;font-size:.92rem;font-family:'Nunito Sans',sans-serif;font-weight:600;color:var(--dark);outline:none;transition:border-color var(--t);resize:none;background:#fff;-webkit-appearance:none}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.12)}
 .fg input.err,.fg textarea.err{border-color:#ef4444}
 .ferr{font-size:.75rem;color:#ef4444;min-height:14px}
@@ -305,7 +315,7 @@ input,select,textarea{font-family:inherit}
 .footer-logo{height:80px;width:auto;object-fit:contain;border-radius:var(--rs);margin-bottom:16px}
 .footer-brand p{font-size:.85rem;line-height:1.7;max-width:260px;color:rgba(255,255,255,.5)}
 
-.footer-col h4{color:#fff;font-size:.88rem;font-weight:700;margin-bottom:16px;letter-spacing:.02em}
+.footer-col h4{color:#fff;font-size:.88rem;font-weight:800;margin-bottom:16px;letter-spacing:.04em;text-transform:uppercase;font-size:.75rem}
 .footer-col ul{display:flex;flex-direction:column;gap:9px}
 .footer-col ul a{font-size:.83rem;color:rgba(255,255,255,.5);transition:color var(--t)}
 .footer-col ul a:hover{color:var(--gold)}
