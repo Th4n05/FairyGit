@@ -1,243 +1,159 @@
-/* ═══════════════════════════════════════════════════════
-   FairyGit Imobiliare – Main JavaScript
-═══════════════════════════════════════════════════════ */
+/* Golden Home Real Estate – main.js */
 
-// ── Navbar scroll effect ──
-const navbar = document.getElementById('navbar');
+// ── Navbar scroll ──
+const btt = document.getElementById('btt');
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-  document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+  btt.classList.toggle('vis', window.scrollY > 400);
 }, { passive: true });
 
-// ── Hamburger menu ──
+// ── Hamburger ──
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-
-  if (navLinks.classList.contains('open') && !navLinks.querySelector('.close-menu')) {
-    const close = document.createElement('span');
-    close.className = 'close-menu';
-    close.textContent = '✕';
-    close.addEventListener('click', closeMenu);
-    navLinks.prepend(close);
-  }
+hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.addEventListener('click', e => {
+  if (e.target.tagName === 'A' || getComputedStyle(navLinks).position === 'fixed')
+    navLinks.classList.remove('open');
 });
 
-function closeMenu() {
-  navLinks.classList.remove('open');
-}
-
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-
-// ── Hero tab filter (synced with property filter) ──
-const tabBtns      = document.querySelectorAll('.tab-btn');
-const filterTypeEl = document.getElementById('filterType');
-
-tabBtns.forEach(btn => {
+// ── Search hero tabs ──
+document.querySelectorAll('.stab').forEach(btn => {
   btn.addEventListener('click', () => {
-    tabBtns.forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.stab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
-    const val = btn.dataset.filter;
-    filterTypeEl.value = val === 'te-gjitha' ? '' : val;
-    applyFilters();
   });
 });
 
-// ── Scroll to properties ──
-function scrollToProperties() {
-  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+// ── Search ──
+function doSearch() {
+  const type  = document.querySelector('.stab.active')?.dataset.type ?? '';
+  const cat   = document.getElementById('sCat').value;
+  const price = document.getElementById('sPrice').value;
+  const query = document.getElementById('searchInput').value.toLowerCase();
+
+  filterCards({ type, cat, price, query });
   document.getElementById('pronat').scrollIntoView({ behavior: 'smooth' });
-
-  if (query) {
-    setTimeout(() => filterBySearch(query), 500);
-  }
 }
 
-function filterBySearch(query) {
-  const cards = document.querySelectorAll('.property-card');
-  let visible = 0;
-
-  cards.forEach(card => {
-    const text = card.innerText.toLowerCase();
-    const match = text.includes(query);
-    card.classList.toggle('hidden', !match);
-    if (match) visible++;
-  });
-
-  updateResultsCount(visible);
-  toggleNoResults(visible === 0);
+// ── Quick filters ──
+function qFilter(type) {
+  document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  filterCards({ type });
 }
 
-// ── Main filter function ──
-function applyFilters() {
-  const type     = document.getElementById('filterType').value;
-  const category = document.getElementById('filterCategory').value;
-  const zone     = document.getElementById('filterZone').value;
-  const priceRange = document.getElementById('filterPrice').value;
+function qFilterCat(cat) {
+  document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  filterCards({ cat });
+}
 
-  const cards = document.querySelectorAll('.property-card');
+function qFilterZone(zone) {
+  filterCards({ zone });
+  document.getElementById('pronat').scrollIntoView({ behavior: 'smooth' });
+}
+
+function resetAll() {
+  document.querySelectorAll('.qf-btn').forEach((b,i) => b.classList.toggle('active', i===0));
+  filterCards({});
+}
+
+// ── Core filter ──
+function filterCards({ type='', cat='', zone='', price='', query='' } = {}) {
+  const cards = document.querySelectorAll('.pcard');
   let visible = 0;
 
-  cards.forEach(card => {
-    const cardType     = card.dataset.type;
-    const cardCategory = card.dataset.category;
-    const cardZone     = card.dataset.zone;
-    const cardPrice    = parseInt(card.dataset.price, 10);
-
+  cards.forEach(c => {
     let show = true;
-
-    if (type     && cardType     !== type)     show = false;
-    if (category && cardCategory !== category) show = false;
-    if (zone     && cardZone     !== zone)     show = false;
-
-    if (priceRange && show) {
-      if (priceRange === '500000+') {
-        show = cardPrice >= 500000;
-      } else {
-        const [min, max] = priceRange.split('-').map(Number);
-        if (!isNaN(max)) {
-          show = cardPrice >= min && cardPrice <= max;
-        } else {
-          show = cardPrice >= min;
-        }
-      }
+    if (type  && c.dataset.type !== type)  show = false;
+    if (cat   && c.dataset.cat  !== cat)   show = false;
+    if (zone  && c.dataset.zone !== zone)  show = false;
+    if (query && !c.innerText.toLowerCase().includes(query)) show = false;
+    if (price) {
+      const p = parseInt(c.dataset.price, 10);
+      const limit = parseInt(price, 10);
+      if (p > limit) show = false;
     }
-
-    card.classList.toggle('hidden', !show);
+    c.classList.toggle('hidden', !show);
     if (show) visible++;
   });
 
-  updateResultsCount(visible);
-  toggleNoResults(visible === 0);
+  const rc = document.getElementById('resultsCount');
+  rc.textContent = visible === 1 ? '1 pronë e gjetur' : `${visible} prona të gjetura`;
 
-  // Sync hero tabs with filter
-  tabBtns.forEach(btn => {
-    const tabVal = btn.dataset.filter === 'te-gjitha' ? '' : btn.dataset.filter;
-    btn.classList.toggle('active', tabVal === type);
-  });
+  const noR = document.getElementById('noResults');
+  const grid = document.getElementById('propsGrid');
+  noR.style.display  = visible === 0 ? 'block' : 'none';
+  grid.style.display = visible === 0 ? 'none'  : '';
 }
 
-function resetFilters() {
-  document.getElementById('filterType').value     = '';
-  document.getElementById('filterCategory').value = '';
-  document.getElementById('filterZone').value     = '';
-  document.getElementById('filterPrice').value    = '';
-  document.getElementById('searchInput').value    = '';
-
-  tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === 'te-gjitha'));
-
-  document.querySelectorAll('.property-card').forEach(c => c.classList.remove('hidden'));
-  const total = document.querySelectorAll('.property-card').length;
-  updateResultsCount(total);
-  toggleNoResults(false);
+// ── View toggle ──
+function setView(v) {
+  const grid = document.getElementById('propsGrid');
+  grid.classList.toggle('list-view', v === 'list');
+  document.getElementById('btnGrid').classList.toggle('active', v === 'grid');
+  document.getElementById('btnList').classList.toggle('active', v === 'list');
 }
 
-function updateResultsCount(n) {
-  const el = document.getElementById('resultsCount');
-  el.textContent = n === 1 ? 'Duke shfaqur 1 pronë' : `Duke shfaqur ${n} prona`;
-}
-
-function toggleNoResults(show) {
-  document.getElementById('noResults').style.display     = show ? 'block' : 'none';
-  document.getElementById('propertiesGrid').style.display = show ? 'none' : 'grid';
-}
-
-// ── Wishlist / Heart toggle ──
-document.querySelectorAll('.btn-heart').forEach(btn => {
+// ── Heart / save ──
+document.querySelectorAll('.ph-btn').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
-    btn.classList.toggle('active');
-    btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
+    btn.classList.toggle('saved');
   });
 });
 
-// ── Contact form validation ──
+// ── Contact form ──
 const form = document.getElementById('contactForm');
-
 form.addEventListener('submit', e => {
   e.preventDefault();
-  let valid = true;
+  let ok = true;
 
-  // Clear previous errors
-  ['name', 'phone', 'email', 'message'].forEach(id => {
-    document.getElementById(id).classList.remove('error');
-    const err = document.getElementById(id + 'Error');
-    if (err) err.textContent = '';
+  const rules = [
+    { id:'fname',  err:'fnameErr',  msg:'Shkruani emrin tuaj.',          check: v => v.trim().length >= 2 },
+    { id:'fphone', err:'fphoneErr', msg:'Shkruani numrin e telefonit.',   check: v => /^\+?[\d\s\-]{7,}$/.test(v.trim()) },
+    { id:'femail', err:'femailErr', msg:'Email jo i vlefshëm.',           check: v => !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    { id:'fmsg',   err:'fmsgErr',   msg:'Mesazhi duhet të jetë 10+ char.', check: v => v.trim().length >= 10 },
+  ];
+
+  rules.forEach(r => {
+    const el  = document.getElementById(r.id);
+    const err = document.getElementById(r.err);
+    el.classList.remove('err');
+    err.textContent = '';
+    if (!r.check(el.value)) {
+      el.classList.add('err');
+      err.textContent = r.msg;
+      ok = false;
+    }
   });
 
-  const name    = document.getElementById('name');
-  const phone   = document.getElementById('phone');
-  const email   = document.getElementById('email');
-  const message = document.getElementById('message');
+  if (!ok) return;
 
-  if (!name.value.trim() || name.value.trim().length < 2) {
-    showError('name', 'Ju lutem shkruani emrin dhe mbiemrin.');
-    valid = false;
-  }
-
-  if (!phone.value.trim() || !/^\+?[\d\s\-]{7,}$/.test(phone.value.trim())) {
-    showError('phone', 'Shkruani një numër telefoni të vlefshëm.');
-    valid = false;
-  }
-
-  if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-    showError('email', 'Shkruani një adresë email të vlefshme.');
-    valid = false;
-  }
-
-  if (!message.value.trim() || message.value.trim().length < 10) {
-    showError('message', 'Mesazhi duhet të ketë të paktën 10 karaktere.');
-    valid = false;
-  }
-
-  if (valid) {
-    submitForm();
-  }
-});
-
-function showError(id, msg) {
-  document.getElementById(id).classList.add('error');
-  const errEl = document.getElementById(id + 'Error');
-  if (errEl) errEl.textContent = msg;
-}
-
-function submitForm() {
-  const btn = document.getElementById('submitBtn');
+  const btn = document.getElementById('fsubmit');
   btn.disabled = true;
-  btn.innerHTML = '<span>Duke dërguar...</span>';
+  btn.textContent = 'Duke dërguar...';
 
   setTimeout(() => {
     form.reset();
     btn.disabled = false;
-    btn.innerHTML = '<span>Dërgo Mesazhin</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
-    document.getElementById('formSuccess').style.display = 'block';
-
-    setTimeout(() => {
-      document.getElementById('formSuccess').style.display = 'none';
-    }, 5000);
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Dërgo Mesazhin';
+    document.getElementById('fsuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('fsuccess').style.display = 'none', 5000);
   }, 1200);
-}
+});
 
-// ── Scroll reveal animation ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
-    }
+// ── Scroll reveal ──
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.property-card, .service-card, .why-list li').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(24px)';
-  el.style.transition = 'opacity .5s ease, transform .5s ease';
-  observer.observe(el);
+document.querySelectorAll('.pcard,.srv-card,.zone-card,.why-checks li,.wstat').forEach(el => {
+  el.classList.add('reveal');
+  io.observe(el);
 });
 
-// ── Initial count ──
-updateResultsCount(document.querySelectorAll('.property-card').length);
+// ── Init count ──
+filterCards({});
