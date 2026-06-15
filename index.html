@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FairyGit Imobiliare – Prona për Shitje & Qira</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ───── NAVBAR ───── -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L2 12v18h10v-8h8v8h10V12L16 2z" fill="#e8a045" stroke="#e8a045" stroke-width="1"/>
+        </svg>
+        <span>FairyGit <em>Imobiliare</em></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#kryefaqja">Kryefaqja</a>
+        <a href="#pronat">Pronat</a>
+        <a href="#sherbime">Shërbime</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <a href="#kontakt" class="btn btn-primary nav-cta">Na Kontaktoni</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ───── HERO ───── -->
+  <section class="hero" id="kryefaqja">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <span class="badge">Nr.1 në Treg</span>
+      <h1>Gjej Shtëpinë e Ëndrrave Tuaja</h1>
+      <p>Ofrojmë pronat më të mira për shitje dhe qira. Eksperiencë, besueshmëri dhe profesionalizëm në çdo hap të procesit.</p>
+      <div class="hero-search">
+        <div class="search-tabs">
+          <button class="tab-btn active" data-filter="te-gjitha">Të gjitha</button>
+          <button class="tab-btn" data-filter="shitje">Për Shitje</button>
+          <button class="tab-btn" data-filter="qira">Për Qira</button>
+        </div>
+        <div class="search-row">
+          <input type="text" id="searchInput" placeholder="Kërko sipas vendndodhjes, llojit..." />
+          <button class="btn btn-primary" onclick="scrollToProperties()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            Kërko
+          </button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>200+</strong><span>Prona Aktive</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><strong>1,500+</strong><span>Klientë të Lumtur</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><strong>15+</strong><span>Vite Eksperiencë</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll" onclick="scrollToProperties()">
+      <span>Shiko Pronat</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ───── FILTER STRIP ───── -->
+  <section class="filter-strip" id="pronat">
+    <div class="container filter-inner">
+      <div class="filter-group">
+        <label>Lloji</label>
+        <select id="filterType">
+          <option value="">Të gjitha</option>
+          <option value="shitje">Për Shitje</option>
+          <option value="qira">Për Qira</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Kategoria</label>
+        <select id="filterCategory">
+          <option value="">Të gjitha</option>
+          <option value="apartament">Apartament</option>
+          <option value="vile">Vilë</option>
+          <option value="dhome">Dhomë</option>
+          <option value="zyre">Zyrë / Lokal</option>
+          <option value="toke">Tokë</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Zona</label>
+        <select id="filterZone">
+          <option value="">Të gjitha</option>
+          <option value="tirane">Tiranë</option>
+          <option value="durres">Durrës</option>
+          <option value="sarande">Sarandë</option>
+          <option value="vlore">Vlorë</option>
+          <option value="shkoder">Shkodër</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Çmimi (€)</label>
+        <select id="filterPrice">
+          <option value="">Të gjitha</option>
+          <option value="0-500">Deri 500/mua</option>
+          <option value="0-100000">Deri 100,000</option>
+          <option value="100000-200000">100,000 – 200,000</option>
+          <option value="200000-500000">200,000 – 500,000</option>
+          <option value="500000+">500,000+</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" onclick="applyFilters()">Filtro</button>
+      <button class="btn btn-ghost" onclick="resetFilters()">Pastro</button>
+    </div>
+  </section>
+
+  <!-- ───── PROPERTIES GRID ───── -->
+  <section class="properties-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Pronat Tona</h2>
+        <p>Zgjidh nga koleksioni ynë i kuruar i pronave premium</p>
+        <div class="results-count" id="resultsCount">Duke shfaqur 9 prona</div>
+      </div>
+      <div class="properties-grid" id="propertiesGrid">
+
+        <!-- CARD 1 -->
+        <article class="property-card" data-type="shitje" data-category="apartament" data-zone="tirane" data-price="95000">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="Apartament modern Tiranë" loading="lazy"/>
+            <span class="badge-type shitje">Shitje</span>
+            <span class="badge-cat">Apartament</span>
+            <button class="btn-heart" title="Ruaj">&#9825;</button>
+          </div>
+          <div class="card-body">
+            <h3>Apartament 2+1 – Blloku</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Blloku, Tiranë
+            </p>
+            <p class="card-desc">Apartament i ri, i ndritshëm me pamje nga parku. Kati 5/8, ashensor, parking.</p>
+            <div class="card-features">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> 3 dhoma</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 2 banjo</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 95 m²</span>
+            </div>
+            <div class="card-footer">
+              <span class="price">€95,000</span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Detaje</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="property-card" data-type="qira" data-category="apartament" data-zone="tirane" data-price="450">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80" alt="Apartament qira Tiranë" loading="lazy"/>
+            <span class="badge-type qira">Qira</span>
+            <span class="badge-cat">Apartament</span>
+            <button class="btn-heart" title="Ruaj">&#9825;</button>
+          </div>
+          <div class="card-body">
+            <h3>Apartament 1+1 – Rruga e Kavajës</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Rruga e Kavajës, Tiranë
+            </p>
+            <p class="card-desc">Apartament i mobiluar plotësisht, internet fiber, ujë i ngrohtë 24 orë.</p>
+            <div class="card-features">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> 2 dhoma</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 1 banjo</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 65 m²</span>
+            </div>
+            <div class="card-footer">
+              <span class="price">€450 <small>/muaj</small></span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Detaje</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="property-card" data-type="shitje" data-category="vile" data-zone="tirane" data-price="380000">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Vilë luksoze Tiranë" loading="lazy"/>
+            <span class="badge-type shitje">Shitje</span>
+            <span class="badge-cat">Vilë</span>
+            <span class="badge-premium">Premium</span>
+            <button class="btn-heart" title="Ruaj">&#9825;</button>
+          </div>
+          <div class="card-body">
+            <h3>Vilë Luksoze – Kodra e Diellit</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Kodra e Diellit, Tiranë
+            </p>
+            <p class="card-desc">Vilë 3-katëshe me pishinë private, kopsht 500m², garazh 3 makinash, sistem i inteligjencës shtëpiake.</p>
+            <div class="card-features">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> 5 dhoma</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 4 banjo</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 420 m²</span>
+            </div>
+            <div class="card-footer">
+              <span class="price">€380,000</span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Detaje</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="property-card" data-type="qira" data-category="zyre" data-zone="tirane" data-price="800">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Zyrë qira Tiranë" loading="lazy"/>
+            <span class="badge-type qira">Qira</span>
+            <span class="badge-cat">Zyrë</span>
+            <button class="btn-heart" title="Ruaj">&#9825;</button>
+          </div>
+          <div class="card-body">
+            <h3>Zyrë Moderne – Qendra</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Qendra, Tiranë
+            </p>
+            <p class="card-desc">Hapësirë zyre open-space, salla konference, recepsion, parking i sigurt. Kontratat nga 6 muaj.</p>
+            <div class="card-features">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 120 m²</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Kati 7</span>
+              <span>🅿 Parking</span>
+            </div>
+            <div class="card-footer">
+              <span class="price">€800 <small>/muaj</small></span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Detaje</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 5 -->
+        <article class="property-card" data-type="shitje" data-category="apartament" data-zone="durres" data-price="75000">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Apartament Durrës" loading="lazy"/>
+            <span class="badge-type shitje">Shitje</span>
+            <span class="badge-cat">Apartament</span>
+            <button class="btn-heart" title="Ruaj">&#9825;</button>
+          </div>
+          <div class="card-body">
+            <h3>Apartament me Pamje Deti – Durrës</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-13 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Plazhi i Durrësit, Durrës
+            </p>
+            <p class="card-desc">50 metra nga deti, ballkon panoramik, i mobiluar, ideale si investim turistik.</p>
+            <div class="card-features">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> 2 dhoma</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 1 banjo</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 72 m²</span>
+            </div>
+            <div class="card-footer">
+              <span class="price">€75,000</span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Detaje</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 6 -->
+        <article class="property-card" data-type="qira" data-category="dhome" data-zone="tirane" data-price="250">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80" alt="Dhomë qira Tiranë" loading="lazy"/>
+            <span class="badge-type qira">Qira</span>
+            <span class="badge-cat">Dhomë</span>
+            <button class="btn-heart" title="Ruaj">&#9825;</button>
+          </div>
+          <div class="card-body">
+            <h3>Dhomë e Mobiluar – Myslym Shyri</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Myslym Shyri, Tiranë
+            </p>
+            <p class="card-desc">Dhomë e madhe dhe e ndritshme, banjë e ndarë, kuzhinë e përbashkët, banjo private.</p>
+            <div class="card-features">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 25 m²</span>
+              <span>WiFi i përfshirë</span>
+              <span>Qendra 5 min</span>
+            </div>
+            <div class="card-footer">
+              <span class="price">€250 <small>/muaj</small></span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Detaje</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 7 -->
+        <article class="property-card" data-type="shitje" data-category="toke" data-zone="sarande" data-price="120000">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Tokë Sarandë" loading="lazy"/>
+            <span class="badge-type shitje">Shitje</span>
+            <span class="badge-cat">Tokë</span>
+            <button class="btn-heart" title="Ruaj">&#9825;</button>
+          </div>
+          <div class="card-body">
+            <h3>Tokë Ndërtimore – Sarandë</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ksamil, Sarandë
+            </p>
+            <p class="card-desc">Tokë 800m² me leje ndërtimore ekzistuese, 300 metra nga deti Jonian. Potencial turistik maksimal.</p>
+            <div class="card-features">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 800 m²</span>
+              <span>Leje ndërtimore</span>
+              <span>Pamje deti</span>
+            </div>
+            <div class="card-footer">
+              <span class="price">€120,000</span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Detaje</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 8 -->
+        <article class="property-card" data-type="qira" data-category="apartament" data-zone="vlore" data-price="350">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80" alt="Apartament Vlorë" loading="lazy"/>
+            <span class="badge-type qira">Qira</span>
+            <span class="badge-cat">Apartament</span>
+            <button class="btn-heart" title="Ruaj">&#9825;</button>
+          </div>
+          <div class="card-body">
+            <h3>Apartament 2+1 – Lungomare Vlorë</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Lungomare, Vlorë
+            </p>
+            <p class="card-desc">Apartament i rehatshëm pranë lungomare-s, terrasa me pamje deti, i disponueshëm menjëherë.</p>
+            <div class="card-features">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> 3 dhoma</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 2 banjo</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 88 m²</span>
+            </div>
+            <div class="card-footer">
+              <span class="price">€350 <small>/muaj</small></span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Detaje</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 9 -->
+        <article class="property-card" data-type="shitje" data-category="apartament" data-zone="shkoder" data-price="55000">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Apartament Shkodër" loading="lazy"/>
+            <span class="badge-type shitje">Shitje</span>
+            <span class="badge-cat">Apartament</span>
+            <button class="btn-heart" title="Ruaj">&#9825;</button>
+          </div>
+          <div class="card-body">
+            <h3>Apartament 1+1 – Shkodër Qendër</h3>
+            <p class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Qendra, Shkodër
+            </p>
+            <p class="card-desc">Apartament i rinovuar, kuzhinë e re, dysheme parketi, shumë pranë sheshit kryesor.</p>
+            <div class="card-features">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> 2 dhoma</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 1 banjo</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 60 m²</span>
+            </div>
+            <div class="card-footer">
+              <span class="price">€55,000</span>
+              <a href="#kontakt" class="btn btn-sm btn-primary">Detaje</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- No results state -->
+      <div class="no-results" id="noResults" style="display:none;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <h3>Nuk u gjetën prona</h3>
+        <p>Provo të ndryshosh filtrat e kërkimit.</p>
+        <button class="btn btn-outline" onclick="resetFilters()">Pastro Filtrat</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── SERVICES ───── -->
+  <section class="services-section" id="sherbime">
+    <div class="container">
+      <div class="section-header">
+        <h2>Shërbimet Tona</h2>
+        <p>Gjithçka keni nevojë nën një çati</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🏡</div>
+          <h3>Blerje Prone</h3>
+          <p>Ju ndihmojmë të gjeni pronën e duhur sipas buxhetit dhe preferencave tuaja, duke menaxhuar gjithë procesin ligjor.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔑</div>
+          <h3>Dhënie me Qira</h3>
+          <p>Administrojmë pronën tuaj, gjejmë qiramarrës të besueshëm dhe sigurohemi për pagesat mujore në kohë.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Konsulencë Ligjore</h3>
+          <p>Ekipi ynë juridik kujdeset për kontrata, çeshtje kadastrale, hipoteka dhe çdo aspekt ligjor të transaksionit.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Vlerësim Prone</h3>
+          <p>Ofrojmë vlerësime profesionale të tregut të pasurive të paluajtshme bazuar në analizën e thellë të tregut.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏗️</div>
+          <h3>Investim & Zhvillim</h3>
+          <p>Këshillojmë investitorët për mundësi fitimprurëse dhe ndërtuesit për projektet rezidenciale e komerciale.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🤝</div>
+          <h3>Shoqërim & Negocim</h3>
+          <p>Agjentët tanë ju shoqërojnë në çdo vizitë dhe negociojnë çmimin më të mirë të mundshëm për ju.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── WHY US ───── -->
+  <section class="why-us">
+    <div class="container why-inner">
+      <div class="why-text">
+        <span class="badge">Pse Ne?</span>
+        <h2>Partnerët Tuaj të Besueshëm në Pasuri të Paluajtshme</h2>
+        <p>Me mbi 15 vite eksperiencë në tregun shqiptar, ofrojmë shërbim të personalizuar dhe transparent. Çdo klient është prioriteti ynë.</p>
+        <ul class="why-list">
+          <li>
+            <div class="why-check">✓</div>
+            <div>
+              <strong>Transparencë e plotë</strong>
+              <span>Pa tarifa të fshehura. Gjithçka e qartë nga fillimi.</span>
+            </div>
+          </li>
+          <li>
+            <div class="why-check">✓</div>
+            <div>
+              <strong>Përgjigje brenda 24 orëve</strong>
+              <span>Ekipi ynë është gjithmonë i disponueshëm për pyetjet tuaja.</span>
+            </div>
+          </li>
+          <li>
+            <div class="why-check">✓</div>
+            <div>
+              <strong>Rrjet i gjerë pronash</strong>
+              <span>Qasje ekskluzive në prona që nuk janë publikisht të disponueshme.</span>
+            </div>
+          </li>
+          <li>
+            <div class="why-check">✓</div>
+            <div>
+              <strong>Mbështetje pas shitjes</strong>
+              <span>Nuk ju lëmë pas blerjes – vazhdojmë të ndihmojmë.</span>
+            </div>
+          </li>
+        </ul>
+        <a href="#kontakt" class="btn btn-primary btn-lg">Fol me Agjentin</a>
+      </div>
+      <div class="why-image">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80" alt="Agjenci imobiliare profesionale" loading="lazy"/>
+        <div class="why-badge-float">
+          <strong>15+</strong>
+          <span>Vite Eksperiencë</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CONTACT ───── -->
+  <section class="contact-section" id="kontakt">
+    <div class="container">
+      <div class="section-header light">
+        <h2>Na Kontaktoni</h2>
+        <p>Jemi të gatshëm t'ju ndihmojmë. Dërgoni mesazhin tuaj dhe do t'ju përgjigjemi sa më shpejt.</p>
+      </div>
+      <div class="contact-inner">
+        <div class="contact-info">
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <strong>Adresa</strong>
+              <span>Rruga Ismail Qemali, Tiranë 1001</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div>
+              <strong>Telefon</strong>
+              <span>+355 69 XXX XXXX</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <span>info@fairygit-imobiliare.al</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div>
+              <strong>Oraret</strong>
+              <span>E Hënë–E Premte: 09:00–18:00<br/>E Shtunë: 10:00–14:00</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="WhatsApp" class="social-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Emri & Mbiemri *</label>
+              <input type="text" id="name" name="name" placeholder="P.sh. Arjola Kelmendi" required />
+              <span class="form-error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefoni *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+355 69..." required />
+              <span class="form-error" id="phoneError"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="emaili@tuaj.com" />
+            <span class="form-error" id="emailError"></span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="interest">Interesi</label>
+              <select id="interest" name="interest">
+                <option value="">Zgjidhni...</option>
+                <option value="blerje">Dua të blej</option>
+                <option value="qira-klient">Dua të marr me qira</option>
+                <option value="shitje-prone">Dua të shes pronën</option>
+                <option value="qira-pronar">Dua të jap me qira</option>
+                <option value="tjeter">Tjetër</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Buxheti (opsional)</label>
+              <input type="text" id="budget" name="budget" placeholder="P.sh. 100,000€ ose 500€/muaj" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Mesazhi *</label>
+            <textarea id="message" name="message" rows="4" placeholder="Shkruani këtu çfarë po kërkoni ose çfarë pyetjesh keni..." required></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-full" id="submitBtn">
+            <span>Dërgo Mesazhin</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+          <div class="form-success" id="formSuccess" style="display:none;">
+            <span>&#10003;</span> Mesazhi u dërgua! Do t'ju kontaktojmë së shpejti.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FOOTER ───── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L2 12v18h10v-8h8v8h10V12L16 2z" fill="#e8a045"/>
+          </svg>
+          <span>FairyGit <em>Imobiliare</em></span>
+        </a>
+        <p>Agjencia juaj e besueshme për blerje, shitje dhe qira pronash në të gjithë Shqipërinë.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Linqe</h4>
+        <ul>
+          <li><a href="#kryefaqja">Kryefaqja</a></li>
+          <li><a href="#pronat">Pronat</a></li>
+          <li><a href="#sherbime">Shërbimet</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Kategorite</h4>
+        <ul>
+          <li><a href="#pronat">Apartamente</a></li>
+          <li><a href="#pronat">Vilë</a></li>
+          <li><a href="#pronat">Zyra & Lokale</a></li>
+          <li><a href="#pronat">Toka</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Zonat</h4>
+        <ul>
+          <li><a href="#pronat">Tiranë</a></li>
+          <li><a href="#pronat">Durrës</a></li>
+          <li><a href="#pronat">Sarandë</a></li>
+          <li><a href="#pronat">Vlorë</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 FairyGit Imobiliare. Të gjitha të drejtat e rezervuara.</p>
+        <p>Ndërtuar me ❤ në Shqipëri</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop" title="Kthehu lart">↑</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
