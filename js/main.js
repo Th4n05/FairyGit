@@ -1,79 +1,84 @@
 /* Golden Home Real Estate – main.js */
 
-// ── Navbar scroll ──
+// ── Back to top ──
 const btt = document.getElementById('btt');
-window.addEventListener('scroll', () => {
-  btt.classList.toggle('vis', window.scrollY > 400);
-}, { passive: true });
+window.addEventListener('scroll', () => btt.classList.toggle('vis', window.scrollY > 400), { passive: true });
 
 // ── Hamburger ──
 const hamburger = document.getElementById('hamburger');
-const navLinks  = document.getElementById('navLinks');
+const siteNav   = document.getElementById('siteNav');
+hamburger.addEventListener('click', () => siteNav.classList.toggle('open'));
+siteNav.addEventListener('click', e => { if (e.target.tagName === 'A') siteNav.classList.remove('open'); });
 
-hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.addEventListener('click', e => {
-  if (e.target.tagName === 'A' || getComputedStyle(navLinks).position === 'fixed')
-    navLinks.classList.remove('open');
-});
-
-// ── Search hero tabs ──
-document.querySelectorAll('.stab').forEach(btn => {
+// ── Hero tabs ──
+document.querySelectorAll('.sh-tab').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.stab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.sh-tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    currentType = btn.dataset.type;
+    applyFilters();
   });
 });
 
-// ── Search ──
+let currentType = '';
+let currentCats  = new Set();
+let currentZones = new Set();
+
+// ── Hero search ──
 function doSearch() {
-  const type  = document.querySelector('.stab.active')?.dataset.type ?? '';
-  const cat   = document.getElementById('sCat').value;
-  const price = document.getElementById('sPrice').value;
-  const query = document.getElementById('searchInput').value.toLowerCase();
+  const q     = document.getElementById('shSearch').value.trim().toLowerCase();
+  const cat   = document.getElementById('shCat').value;
+  const price = document.getElementById('shPrice').value;
 
-  filterCards({ type, cat, price, query });
-  document.getElementById('pronat').scrollIntoView({ behavior: 'smooth' });
+  if (cat) { currentCats.clear(); currentCats.add(cat); }
+  applyFilters({ query: q, priceMax: price ? parseInt(price) : Infinity });
+  document.getElementById('listings').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ── Quick filters ──
-function qFilter(type) {
-  document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
-  event.currentTarget.classList.add('active');
-  filterCards({ type });
+function quickSearch(term) {
+  document.getElementById('shSearch').value = term;
+  doSearch();
 }
 
-function qFilterCat(cat) {
-  document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
-  event.currentTarget.classList.add('active');
-  filterCards({ cat });
-}
+// ── Sidebar filters ──
+function sideFilter() {
+  // radio for type
+  const typeRadio = document.querySelector('input[name="stype"]:checked');
+  currentType = typeRadio ? typeRadio.value : '';
 
-function qFilterZone(zone) {
-  filterCards({ zone });
-  document.getElementById('pronat').scrollIntoView({ behavior: 'smooth' });
-}
+  // checkboxes for cat
+  currentCats.clear();
+  document.querySelectorAll('.sf-check input[type=checkbox]:checked').forEach(cb => {
+    if (['apartament','vile','dhome','zyre','toke'].includes(cb.value)) currentCats.add(cb.value);
+  });
 
-function resetAll() {
-  document.querySelectorAll('.qf-btn').forEach((b,i) => b.classList.toggle('active', i===0));
-  filterCards({});
+  // checkboxes for zone
+  currentZones.clear();
+  document.querySelectorAll('.sf-check input[type=checkbox]:checked').forEach(cb => {
+    if (['tirane','durres','sarande','vlore','shkoder'].includes(cb.value)) currentZones.add(cb.value);
+  });
+
+  const prMin = parseInt(document.getElementById('sfPriceMin').value) || 0;
+  const prMax = parseInt(document.getElementById('sfPriceMax').value) || Infinity;
+
+  applyFilters({ priceMin: prMin, priceMax: prMax });
 }
 
 // ── Core filter ──
-function filterCards({ type='', cat='', zone='', price='', query='' } = {}) {
-  const cards = document.querySelectorAll('.pcard');
-  let visible = 0;
+function applyFilters({ query = '', priceMin = 0, priceMax = Infinity } = {}) {
+  const cards   = document.querySelectorAll('.prop-card');
+  let   visible = 0;
 
   cards.forEach(c => {
     let show = true;
-    if (type  && c.dataset.type !== type)  show = false;
-    if (cat   && c.dataset.cat  !== cat)   show = false;
-    if (zone  && c.dataset.zone !== zone)  show = false;
+    if (currentType && c.dataset.type !== currentType) show = false;
+    if (currentCats.size  && !currentCats.has(c.dataset.cat))   show = false;
+    if (currentZones.size && !currentZones.has(c.dataset.zone)) show = false;
+
+    const p = parseInt(c.dataset.price, 10);
+    if (p < priceMin || p > priceMax) show = false;
     if (query && !c.innerText.toLowerCase().includes(query)) show = false;
-    if (price) {
-      const p = parseInt(c.dataset.price, 10);
-      const limit = parseInt(price, 10);
-      if (p > limit) show = false;
-    }
+
     c.classList.toggle('hidden', !show);
     if (show) visible++;
   });
@@ -81,79 +86,100 @@ function filterCards({ type='', cat='', zone='', price='', query='' } = {}) {
   const rc = document.getElementById('resultsCount');
   rc.textContent = visible === 1 ? '1 pronë e gjetur' : `${visible} prona të gjetura`;
 
-  const noR = document.getElementById('noResults');
-  const grid = document.getElementById('propsGrid');
-  noR.style.display  = visible === 0 ? 'block' : 'none';
-  grid.style.display = visible === 0 ? 'none'  : '';
+  document.getElementById('noResults').style.display  = visible === 0 ? 'block' : 'none';
+  document.getElementById('propList').style.display   = visible === 0 ? 'none'  : '';
+}
+
+function resetAll() {
+  currentType = ''; currentCats.clear(); currentZones.clear();
+  document.querySelectorAll('input[name="stype"]').forEach((r, i) => r.checked = i === 0);
+  document.querySelectorAll('.sf-check input').forEach(cb => cb.checked = false);
+  document.getElementById('sfPriceMin').value = '';
+  document.getElementById('sfPriceMax').value = '';
+  document.getElementById('sfAreaMin').value  = '';
+  document.getElementById('sfAreaMax').value  = '';
+  document.getElementById('shSearch').value   = '';
+  document.querySelectorAll('.sh-tab').forEach((b, i) => b.classList.toggle('active', i === 0));
+  applyFilters();
+}
+
+// ── Sort ──
+function sortListings() {
+  const val  = document.getElementById('sortSelect').value;
+  const list = document.getElementById('propList');
+  const cards = [...list.querySelectorAll('.prop-card:not(.hidden)')];
+
+  cards.sort((a, b) => {
+    const pa = parseInt(a.dataset.price, 10);
+    const pb = parseInt(b.dataset.price, 10);
+    if (val === 'price-asc')  return pa - pb;
+    if (val === 'price-desc') return pb - pa;
+    return 0;
+  });
+  cards.forEach(c => list.appendChild(c));
 }
 
 // ── View toggle ──
 function setView(v) {
-  const grid = document.getElementById('propsGrid');
-  grid.classList.toggle('list-view', v === 'list');
-  document.getElementById('btnGrid').classList.toggle('active', v === 'grid');
-  document.getElementById('btnList').classList.toggle('active', v === 'list');
+  document.getElementById('propList').classList.toggle('grid-view', v === 'grid');
+  document.getElementById('vbtnList').classList.toggle('active', v === 'list');
+  document.getElementById('vbtnGrid').classList.toggle('active', v === 'grid');
 }
 
-// ── Heart / save ──
-document.querySelectorAll('.ph-btn').forEach(btn => {
+// ── Save / heart ──
+document.querySelectorAll('.btn-save').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
     btn.classList.toggle('saved');
+    const svg = btn.querySelector('svg');
+    if (btn.classList.contains('saved')) {
+      svg.setAttribute('fill', '#dc2626');
+      svg.setAttribute('stroke', '#dc2626');
+    } else {
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+    }
   });
 });
 
 // ── Contact form ──
-const form = document.getElementById('contactForm');
-form.addEventListener('submit', e => {
+document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
   let ok = true;
 
   const rules = [
-    { id:'fname',  err:'fnameErr',  msg:'Shkruani emrin tuaj.',          check: v => v.trim().length >= 2 },
-    { id:'fphone', err:'fphoneErr', msg:'Shkruani numrin e telefonit.',   check: v => /^\+?[\d\s\-]{7,}$/.test(v.trim()) },
-    { id:'femail', err:'femailErr', msg:'Email jo i vlefshëm.',           check: v => !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
-    { id:'fmsg',   err:'fmsgErr',   msg:'Mesazhi duhet të jetë 10+ char.', check: v => v.trim().length >= 10 },
+    { id:'cname',  err:'cnameErr',  check: v => v.trim().length >= 2,   msg:'Shkruani emrin.' },
+    { id:'cphone', err:'cphoneErr', check: v => /^\+?[\d\s\-]{7,}$/.test(v.trim()), msg:'Numër jo i vlefshëm.' },
+    { id:'cemail', err:null,        check: v => !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg:'' },
+    { id:'cmsg',   err:'cmsgErr',   check: v => v.trim().length >= 10,  msg:'Minimum 10 karaktere.' },
   ];
 
   rules.forEach(r => {
-    const el  = document.getElementById(r.id);
-    const err = document.getElementById(r.err);
+    const el = document.getElementById(r.id);
+    if (!el) return;
     el.classList.remove('err');
-    err.textContent = '';
+    if (r.err) document.getElementById(r.err).textContent = '';
     if (!r.check(el.value)) {
       el.classList.add('err');
-      err.textContent = r.msg;
+      if (r.err) document.getElementById(r.err).textContent = r.msg;
       ok = false;
     }
   });
 
   if (!ok) return;
 
-  const btn = document.getElementById('fsubmit');
+  const btn = document.getElementById('csubmit');
   btn.disabled = true;
-  btn.textContent = 'Duke dërguar...';
-
+  btn.textContent = 'Duke dërguar…';
   setTimeout(() => {
-    form.reset();
+    document.getElementById('contactForm').reset();
     btn.disabled = false;
-    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Dërgo Mesazhin';
-    document.getElementById('fsuccess').style.display = 'block';
-    setTimeout(() => document.getElementById('fsuccess').style.display = 'none', 5000);
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Dërgo Mesazhin';
+    const s = document.getElementById('cfSuccess');
+    s.style.display = 'block';
+    setTimeout(() => s.style.display = 'none', 5000);
   }, 1200);
 });
 
-// ── Scroll reveal ──
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.pcard,.srv-card,.zone-card,.why-checks li,.wstat').forEach(el => {
-  el.classList.add('reveal');
-  io.observe(el);
-});
-
-// ── Init count ──
-filterCards({});
+// ── Init ──
+applyFilters();

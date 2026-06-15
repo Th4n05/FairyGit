@@ -5,545 +5,629 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Golden Home Real Estate – Prona për Shitje & Qira</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-<!-- ═══ TOPBAR ═══ -->
-<div class="topbar">
-  <div class="container topbar-inner">
-    <span>📞 +355 69 XXX XXXX</span>
-    <span>✉️ info@goldenhome.al</span>
-    <span>🕐 E Hënë–Premte 09:00–18:00</span>
-  </div>
-</div>
-
-<!-- ═══ NAVBAR ═══ -->
-<header class="navbar" id="navbar">
-  <div class="container nav-inner">
-    <a href="#" class="logo-link">
-      <img src="images/logo.jpg" alt="Golden Home Real Estate" class="logo-img"/>
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner container">
+    <!-- Logo -->
+    <a href="#" class="site-logo">
+      <img src="images/logo.jpg" alt="Golden Home Real Estate"/>
     </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#kryefaqja" class="nav-a">Kryefaqja</a>
-      <a href="#pronat" class="nav-a">Të Gjitha Pronat</a>
-      <a href="#shitje" class="nav-a">Për Shitje</a>
-      <a href="#qira" class="nav-a">Për Qira</a>
-      <a href="#sherbime" class="nav-a">Shërbime</a>
-      <a href="#kontakt" class="nav-a">Kontakt</a>
+
+    <!-- Nav -->
+    <nav class="site-nav" id="siteNav">
+      <a href="#listings" class="snav-link">Shitje</a>
+      <a href="#listings" class="snav-link">Qira</a>
+      <a href="#sherbime" class="snav-link">Shërbime</a>
+      <a href="#agjencia" class="snav-link">Agjencia</a>
+      <a href="#kontakt" class="snav-link">Kontakt</a>
     </nav>
-    <div class="nav-actions">
-      <a href="tel:+35569000000" class="btn btn-outline-gold">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16a2 2 0 0 1 .42.92z"/></svg>
-        Na Kontaktoni
+
+    <!-- Actions -->
+    <div class="header-actions">
+      <a href="tel:+35569000000" class="btn-phone">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 16a2 2 0 0 1 .42.92z"/></svg>
+        +355 69 XXX XXXX
       </a>
-      <button class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<!-- ═══ HERO ═══ -->
-<section class="hero" id="kryefaqja">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="container hero-content">
-    <div class="hero-text">
-      <div class="hero-badge">
-        <span class="dot"></span> Agjencia Nr.1 në Shqipëri
-      </div>
-      <h1>Prona <span class="gold">Premium</span><br/>për Çdo Nevojë</h1>
-      <p>Mbi 200 prona aktive. Shitje, qira, investim.<br/>Profesionalizëm që meritoni.</p>
+<!-- ═══ SEARCH HERO (navy bar – cuore di immobiliare.it) ═══ -->
+<section class="search-hero" id="kryefaqja">
+  <div class="container">
+    <div class="sh-top">
+      <h1>Gjej pronën e duhur<span class="gold-dot">.</span></h1>
+      <p>Mbi <strong>200 prona</strong> aktive në Shqipëri — shitje, qira, investim</p>
     </div>
 
-    <!-- SEARCH BOX – immobiliare.it style -->
-    <div class="search-box" id="searchBox">
-      <div class="search-tabs">
-        <button class="stab active" data-type="">🏠 Të Gjitha</button>
-        <button class="stab" data-type="shitje">💰 Për Shitje</button>
-        <button class="stab" data-type="qira">🔑 Për Qira</button>
+    <!-- Tab bar -->
+    <div class="sh-tabs">
+      <button class="sh-tab active" data-type="">Të gjitha</button>
+      <button class="sh-tab" data-type="shitje">Për Shitje</button>
+      <button class="sh-tab" data-type="qira">Për Qira</button>
+    </div>
+
+    <!-- Search form -->
+    <div class="sh-form">
+      <div class="shf-field shf-location">
+        <svg class="shf-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <input type="text" id="shSearch" placeholder="Qyteti, zona, rruga, kodi postar…"/>
       </div>
-      <div class="search-body">
-        <div class="search-field big">
-          <label>Kërko</label>
-          <input type="text" id="searchInput" placeholder="Zona, qyteti, rruga..."/>
+      <div class="shf-sep"></div>
+      <div class="shf-field shf-select">
+        <select id="shCat">
+          <option value="">Lloji i pronës</option>
+          <option value="apartament">Apartament</option>
+          <option value="vile">Vilë / Shtëpi</option>
+          <option value="dhome">Dhomë</option>
+          <option value="zyre">Zyrë / Lokal</option>
+          <option value="toke">Tokë</option>
+        </select>
+      </div>
+      <div class="shf-sep"></div>
+      <div class="shf-field shf-select">
+        <select id="shPrice">
+          <option value="">Çmimi</option>
+          <option value="500">Deri €500/muaj</option>
+          <option value="80000">Deri €80,000</option>
+          <option value="150000">Deri €150,000</option>
+          <option value="300000">Deri €300,000</option>
+          <option value="999999">Mbi €300,000</option>
+        </select>
+      </div>
+      <button class="shf-btn" onclick="doSearch()">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        Kërko
+      </button>
+    </div>
+
+    <!-- Popular searches -->
+    <div class="sh-popular">
+      <span>Popullore:</span>
+      <button onclick="quickSearch('Blloku, Tiranë')">Blloku</button>
+      <button onclick="quickSearch('Durrës')">Durrës</button>
+      <button onclick="quickSearch('Sarandë')">Sarandë</button>
+      <button onclick="quickSearch('apartament')">Apartamente</button>
+      <button onclick="quickSearch('vile')">Vilë</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAIN CONTENT (sidebar + listings) ═══ -->
+<main class="main-content" id="listings">
+  <div class="container main-grid">
+
+    <!-- ─ SIDEBAR ─ -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+
+        <div class="sf-block">
+          <h3 class="sf-title">Lloji i transaksionit</h3>
+          <label class="sf-radio">
+            <input type="radio" name="stype" value="" checked onchange="sideFilter()"/> Të gjitha
+          </label>
+          <label class="sf-radio">
+            <input type="radio" name="stype" value="shitje" onchange="sideFilter()"/>
+            <span class="sf-badge shitje">Shitje</span>
+          </label>
+          <label class="sf-radio">
+            <input type="radio" name="stype" value="qira" onchange="sideFilter()"/>
+            <span class="sf-badge qira">Qira</span>
+          </label>
         </div>
-        <div class="search-field">
-          <label>Kategoria</label>
-          <select id="sCat">
-            <option value="">Të gjitha</option>
-            <option value="apartament">Apartament</option>
-            <option value="vile">Vilë</option>
-            <option value="dhome">Dhomë</option>
-            <option value="zyre">Zyrë/Lokal</option>
-            <option value="toke">Tokë</option>
-          </select>
+
+        <div class="sf-block">
+          <h3 class="sf-title">Kategoria</h3>
+          <label class="sf-check"><input type="checkbox" value="apartament" onchange="sideFilter()"/> Apartament</label>
+          <label class="sf-check"><input type="checkbox" value="vile" onchange="sideFilter()"/> Vilë / Shtëpi</label>
+          <label class="sf-check"><input type="checkbox" value="dhome" onchange="sideFilter()"/> Dhomë</label>
+          <label class="sf-check"><input type="checkbox" value="zyre" onchange="sideFilter()"/> Zyrë / Lokal</label>
+          <label class="sf-check"><input type="checkbox" value="toke" onchange="sideFilter()"/> Tokë</label>
         </div>
-        <div class="search-field">
-          <label>Çmimi max</label>
-          <select id="sPrice">
-            <option value="">Pa limit</option>
-            <option value="500">€500/muaj</option>
-            <option value="100000">€100,000</option>
-            <option value="200000">€200,000</option>
-            <option value="500000">€500,000</option>
-          </select>
+
+        <div class="sf-block">
+          <h3 class="sf-title">Zona</h3>
+          <label class="sf-check"><input type="checkbox" value="tirane" onchange="sideFilter()"/> Tiranë</label>
+          <label class="sf-check"><input type="checkbox" value="durres" onchange="sideFilter()"/> Durrës</label>
+          <label class="sf-check"><input type="checkbox" value="sarande" onchange="sideFilter()"/> Sarandë</label>
+          <label class="sf-check"><input type="checkbox" value="vlore" onchange="sideFilter()"/> Vlorë</label>
+          <label class="sf-check"><input type="checkbox" value="shkoder" onchange="sideFilter()"/> Shkodër</label>
         </div>
-        <button class="btn-search" onclick="doSearch()">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-          Kërko
+
+        <div class="sf-block">
+          <h3 class="sf-title">Sipërfaqja (m²)</h3>
+          <div class="sf-range-row">
+            <input type="number" id="sfAreaMin" placeholder="Min" class="sf-input" onchange="sideFilter()"/>
+            <span>–</span>
+            <input type="number" id="sfAreaMax" placeholder="Max" class="sf-input" onchange="sideFilter()"/>
+          </div>
+        </div>
+
+        <div class="sf-block">
+          <h3 class="sf-title">Çmimi (€)</h3>
+          <div class="sf-range-row">
+            <input type="number" id="sfPriceMin" placeholder="Min" class="sf-input" onchange="sideFilter()"/>
+            <span>–</span>
+            <input type="number" id="sfPriceMax" placeholder="Max" class="sf-input" onchange="sideFilter()"/>
+          </div>
+        </div>
+
+        <button class="sf-reset" onclick="resetAll()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg>
+          Pastro filtrat
         </button>
+
       </div>
-    </div>
+    </aside>
 
-    <!-- Quick stats -->
-    <div class="hero-counters">
-      <div class="hc"><b>200+</b><span>Prona Aktive</span></div>
-      <div class="hc"><b>1,500+</b><span>Klientë të Kënaqur</span></div>
-      <div class="hc"><b>15+</b><span>Vite Eksperiencë</span></div>
-      <div class="hc"><b>5 Qytete</b><span>në të Gjithë Shqipërinë</span></div>
-    </div>
-  </div>
-</section>
+    <!-- ─ LISTINGS ─ -->
+    <div class="listings-col">
 
-<!-- ═══ QUICK FILTERS BAR ═══ -->
-<div class="qfilter-bar">
-  <div class="container qfilter-inner">
-    <span class="qf-label">Filtro shpejt:</span>
-    <button class="qf-btn active" onclick="qFilter('')">Të Gjitha</button>
-    <button class="qf-btn" onclick="qFilter('shitje')">Për Shitje</button>
-    <button class="qf-btn" onclick="qFilter('qira')">Për Qira</button>
-    <button class="qf-btn" onclick="qFilterCat('apartament')">Apartamente</button>
-    <button class="qf-btn" onclick="qFilterCat('vile')">Vila</button>
-    <button class="qf-btn" onclick="qFilterCat('zyre')">Zyra</button>
-    <button class="qf-btn" onclick="qFilterCat('toke')">Toka</button>
-    <div class="view-toggle">
-      <button class="vt-btn active" id="btnGrid" onclick="setView('grid')" title="Grid">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-      </button>
-      <button class="vt-btn" id="btnList" onclick="setView('list')" title="List">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-      </button>
-    </div>
-    <span class="results-count" id="resultsCount"></span>
-  </div>
-</div>
+      <!-- Toolbar -->
+      <div class="listings-toolbar">
+        <div class="lt-left">
+          <span class="results-count" id="resultsCount">Duke shfaqur 9 prona</span>
+          <div class="active-tags" id="activeTags"></div>
+        </div>
+        <div class="lt-right">
+          <label class="sort-label">Rendit:
+            <select id="sortSelect" onchange="sortListings()">
+              <option value="">Të fundit</option>
+              <option value="price-asc">Çmimi ↑</option>
+              <option value="price-desc">Çmimi ↓</option>
+            </select>
+          </label>
+          <div class="view-btns">
+            <button class="vbtn active" id="vbtnList" onclick="setView('list')" title="Lista">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </button>
+            <button class="vbtn" id="vbtnGrid" onclick="setView('grid')" title="Grid">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
 
-<!-- ═══ PROPERTIES ═══ -->
-<section class="props-section" id="pronat">
+      <!-- Property list -->
+      <div class="prop-list" id="propList">
+
+        <!-- ─ LISTING 1 ─ -->
+        <article class="prop-card" data-type="shitje" data-cat="apartament" data-zone="tirane" data-price="95000" data-area="95">
+          <a href="#kontakt" class="pcard-img-link">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&q=80" alt="Apartament Blloku" loading="lazy"/>
+            <span class="img-count">📷 8</span>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-badges">
+                <span class="pb-type sale">Shitje</span>
+                <span class="pb-tag new">E Re</span>
+              </div>
+              <div class="pcard-price-box">
+                <div class="pcard-price">€ 95.000</div>
+              </div>
+            </div>
+            <h2 class="pcard-title"><a href="#kontakt">Apartament 2+1 – Blloku, Tiranë</a></h2>
+            <p class="pcard-addr">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Rruga Sami Frashëri, Blloku, Tiranë
+            </p>
+            <p class="pcard-desc">Apartament i ri, i ndritshëm me pamje nga parku. Kati 5/8, ashensor, parking i përfshirë. Mundësi negocimi.</p>
+            <div class="pcard-specs">
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 95 m²</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> 3 dhoma</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11"/><path d="M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 2 banjo</span>
+              <span class="spec">🏢 Kati 5/8</span>
+              <span class="spec">🅿 Parking</span>
+            </div>
+            <div class="pcard-footer">
+              <div class="pcard-agency">
+                <img src="images/logo.jpg" alt="Golden Home" class="agency-logo"/>
+                <span>Golden Home RE</span>
+              </div>
+              <div class="pcard-actions">
+                <button class="btn-save" aria-label="Ruaj">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  Ruaj
+                </button>
+                <a href="#kontakt" class="btn-contact">Kontakto</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─ LISTING 2 ─ -->
+        <article class="prop-card" data-type="qira" data-cat="apartament" data-zone="tirane" data-price="450" data-area="65">
+          <a href="#kontakt" class="pcard-img-link">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Apartament Qira" loading="lazy"/>
+            <span class="img-count">📷 12</span>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-badges">
+                <span class="pb-type rent">Qira</span>
+              </div>
+              <div class="pcard-price-box">
+                <div class="pcard-price">€ 450 <small>/muaj</small></div>
+              </div>
+            </div>
+            <h2 class="pcard-title"><a href="#kontakt">Apartament 1+1 – Rruga e Kavajës, Tiranë</a></h2>
+            <p class="pcard-addr">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Rruga e Kavajës, Nr.45, Tiranë
+            </p>
+            <p class="pcard-desc">I mobiluar plotësisht, internet fiber, ujë i ngrohtë 24 orë. Disponueshëm menjëherë. Kontratë minimale 6 muaj.</p>
+            <div class="pcard-specs">
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 65 m²</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> 2 dhoma</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11"/><path d="M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 1 banjo</span>
+              <span class="spec">📶 WiFi</span>
+              <span class="spec">🛋 I mobiluar</span>
+            </div>
+            <div class="pcard-footer">
+              <div class="pcard-agency">
+                <img src="images/logo.jpg" alt="Golden Home" class="agency-logo"/>
+                <span>Golden Home RE</span>
+              </div>
+              <div class="pcard-actions">
+                <button class="btn-save" aria-label="Ruaj"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Ruaj</button>
+                <a href="#kontakt" class="btn-contact">Kontakto</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─ LISTING 3 ─ -->
+        <article class="prop-card featured" data-type="shitje" data-cat="vile" data-zone="tirane" data-price="380000" data-area="420">
+          <a href="#kontakt" class="pcard-img-link">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&q=80" alt="Vilë Luksoze" loading="lazy"/>
+            <span class="img-count">📷 24</span>
+            <span class="featured-badge">⭐ Premium</span>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-badges">
+                <span class="pb-type sale">Shitje</span>
+                <span class="pb-tag premium">Premium</span>
+              </div>
+              <div class="pcard-price-box">
+                <div class="pcard-price">€ 380.000</div>
+                <div class="pcard-price-sqm">€ 904/m²</div>
+              </div>
+            </div>
+            <h2 class="pcard-title"><a href="#kontakt">Vilë Luksoze 5+2 – Kodra e Diellit, Tiranë</a></h2>
+            <p class="pcard-addr">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Kodra e Diellit, Tiranë
+            </p>
+            <p class="pcard-desc">Vilë 3-katëshe me pishinë private, kopsht 500m², garazh 3 makinash. Smart home system i plotë. Pamje panoramike të qytetit.</p>
+            <div class="pcard-specs">
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 420 m²</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> 5 dhoma</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11"/><path d="M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 4 banjo</span>
+              <span class="spec">🏊 Pishinë</span>
+              <span class="spec">🅿 Garazh x3</span>
+            </div>
+            <div class="pcard-footer">
+              <div class="pcard-agency">
+                <img src="images/logo.jpg" alt="Golden Home" class="agency-logo"/>
+                <span>Golden Home RE</span>
+              </div>
+              <div class="pcard-actions">
+                <button class="btn-save" aria-label="Ruaj"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Ruaj</button>
+                <a href="#kontakt" class="btn-contact">Kontakto</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─ LISTING 4 ─ -->
+        <article class="prop-card" data-type="qira" data-cat="zyre" data-zone="tirane" data-price="800" data-area="120">
+          <a href="#kontakt" class="pcard-img-link">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80" alt="Zyrë" loading="lazy"/>
+            <span class="img-count">📷 6</span>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-badges">
+                <span class="pb-type rent">Qira</span>
+                <span class="pb-tag commercial">Komerciale</span>
+              </div>
+              <div class="pcard-price-box">
+                <div class="pcard-price">€ 800 <small>/muaj</small></div>
+              </div>
+            </div>
+            <h2 class="pcard-title"><a href="#kontakt">Zyrë Open-Space 120m² – Qendra e Tiranës</a></h2>
+            <p class="pcard-addr">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bulevardi Dëshmorët e Kombit, Tiranë
+            </p>
+            <p class="pcard-desc">Hapësirë moderne open-space, salla konference, recepsion. Kati 7, ashensor, parking i sigurt. Kontratat nga 6 muaj.</p>
+            <div class="pcard-specs">
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 120 m²</span>
+              <span class="spec">🏢 Kati 7</span>
+              <span class="spec">🅿 Parking</span>
+              <span class="spec">🛗 Ashensor</span>
+            </div>
+            <div class="pcard-footer">
+              <div class="pcard-agency">
+                <img src="images/logo.jpg" alt="Golden Home" class="agency-logo"/>
+                <span>Golden Home RE</span>
+              </div>
+              <div class="pcard-actions">
+                <button class="btn-save" aria-label="Ruaj"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Ruaj</button>
+                <a href="#kontakt" class="btn-contact">Kontakto</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─ LISTING 5 ─ -->
+        <article class="prop-card" data-type="shitje" data-cat="apartament" data-zone="durres" data-price="75000" data-area="72">
+          <a href="#kontakt" class="pcard-img-link">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&q=80" alt="Durrës" loading="lazy"/>
+            <span class="img-count">📷 15</span>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-badges">
+                <span class="pb-type sale">Shitje</span>
+                <span class="pb-tag sea">🌊 Pamje Deti</span>
+              </div>
+              <div class="pcard-price-box">
+                <div class="pcard-price">€ 75.000</div>
+                <div class="pcard-price-sqm">€ 1.041/m²</div>
+              </div>
+            </div>
+            <h2 class="pcard-title"><a href="#kontakt">Apartament me Pamje Deti – Durrës</a></h2>
+            <p class="pcard-addr">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Plazhi i Durrësit, 50m nga deti
+            </p>
+            <p class="pcard-desc">Ballkon panoramik me pamje të drejtpërdrejtë deti, i mobiluar, ideale si investim turistik. Mundësi marrjeje me qira sezonale.</p>
+            <div class="pcard-specs">
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 72 m²</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> 2 dhoma</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11"/><path d="M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 1 banjo</span>
+              <span class="spec">🌊 50m deti</span>
+            </div>
+            <div class="pcard-footer">
+              <div class="pcard-agency">
+                <img src="images/logo.jpg" alt="Golden Home" class="agency-logo"/>
+                <span>Golden Home RE</span>
+              </div>
+              <div class="pcard-actions">
+                <button class="btn-save" aria-label="Ruaj"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Ruaj</button>
+                <a href="#kontakt" class="btn-contact">Kontakto</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─ LISTING 6 ─ -->
+        <article class="prop-card" data-type="qira" data-cat="dhome" data-zone="tirane" data-price="250" data-area="25">
+          <a href="#kontakt" class="pcard-img-link">
+            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&q=80" alt="Dhomë" loading="lazy"/>
+            <span class="img-count">📷 5</span>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-badges">
+                <span class="pb-type rent">Qira</span>
+              </div>
+              <div class="pcard-price-box">
+                <div class="pcard-price">€ 250 <small>/muaj</small></div>
+              </div>
+            </div>
+            <h2 class="pcard-title"><a href="#kontakt">Dhomë e Mobiluar – Myslym Shyri, Tiranë</a></h2>
+            <p class="pcard-addr">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Rruga Myslym Shyri, Tiranë
+            </p>
+            <p class="pcard-desc">Dhomë e madhe dhe e ndritshme, banjo private, kuzhinë e ndarë. WiFi dhe shërbime të përfshira. 5 min nga qendra.</p>
+            <div class="pcard-specs">
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 25 m²</span>
+              <span class="spec">📶 WiFi incl.</span>
+              <span class="spec">🚇 Qendra 5'</span>
+            </div>
+            <div class="pcard-footer">
+              <div class="pcard-agency">
+                <img src="images/logo.jpg" alt="Golden Home" class="agency-logo"/>
+                <span>Golden Home RE</span>
+              </div>
+              <div class="pcard-actions">
+                <button class="btn-save" aria-label="Ruaj"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Ruaj</button>
+                <a href="#kontakt" class="btn-contact">Kontakto</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─ LISTING 7 ─ -->
+        <article class="prop-card" data-type="shitje" data-cat="toke" data-zone="sarande" data-price="120000" data-area="800">
+          <a href="#kontakt" class="pcard-img-link">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=500&q=80" alt="Tokë Sarandë" loading="lazy"/>
+            <span class="img-count">📷 9</span>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-badges">
+                <span class="pb-type sale">Shitje</span>
+                <span class="pb-tag sea">🌊 Afër Detit</span>
+              </div>
+              <div class="pcard-price-box">
+                <div class="pcard-price">€ 120.000</div>
+                <div class="pcard-price-sqm">€ 150/m²</div>
+              </div>
+            </div>
+            <h2 class="pcard-title"><a href="#kontakt">Tokë Ndërtimore 800m² – Ksamil, Sarandë</a></h2>
+            <p class="pcard-addr">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ksamil, Sarandë — 300m nga deti Jonian
+            </p>
+            <p class="pcard-desc">Tokë 800m² me leje ndërtimore ekzistuese. 300m nga deti Jonian. Potencial turistik maksimal, mundësi vilë ose hotel butiK.</p>
+            <div class="pcard-specs">
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 800 m²</span>
+              <span class="spec">📋 Leje ndërtimore</span>
+              <span class="spec">🌊 300m deti</span>
+            </div>
+            <div class="pcard-footer">
+              <div class="pcard-agency">
+                <img src="images/logo.jpg" alt="Golden Home" class="agency-logo"/>
+                <span>Golden Home RE</span>
+              </div>
+              <div class="pcard-actions">
+                <button class="btn-save" aria-label="Ruaj"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Ruaj</button>
+                <a href="#kontakt" class="btn-contact">Kontakto</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─ LISTING 8 ─ -->
+        <article class="prop-card" data-type="qira" data-cat="apartament" data-zone="vlore" data-price="350" data-area="88">
+          <a href="#kontakt" class="pcard-img-link">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=500&q=80" alt="Vlorë" loading="lazy"/>
+            <span class="img-count">📷 11</span>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-badges">
+                <span class="pb-type rent">Qira</span>
+              </div>
+              <div class="pcard-price-box">
+                <div class="pcard-price">€ 350 <small>/muaj</small></div>
+              </div>
+            </div>
+            <h2 class="pcard-title"><a href="#kontakt">Apartament 2+1 – Lungomare, Vlorë</a></h2>
+            <p class="pcard-addr">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Lungomare, Vlorë
+            </p>
+            <p class="pcard-desc">Terrasa me pamje direkte deti, i rehatshëm dhe i disponueshëm menjëherë. Parking falas. Afër çdo shërbimi.</p>
+            <div class="pcard-specs">
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 88 m²</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> 3 dhoma</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11"/><path d="M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 2 banjo</span>
+              <span class="spec">🏖️ Terrasa</span>
+            </div>
+            <div class="pcard-footer">
+              <div class="pcard-agency">
+                <img src="images/logo.jpg" alt="Golden Home" class="agency-logo"/>
+                <span>Golden Home RE</span>
+              </div>
+              <div class="pcard-actions">
+                <button class="btn-save" aria-label="Ruaj"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Ruaj</button>
+                <a href="#kontakt" class="btn-contact">Kontakto</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─ LISTING 9 ─ -->
+        <article class="prop-card" data-type="shitje" data-cat="apartament" data-zone="shkoder" data-price="55000" data-area="60">
+          <a href="#kontakt" class="pcard-img-link">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Shkodër" loading="lazy"/>
+            <span class="img-count">📷 7</span>
+          </a>
+          <div class="pcard-body">
+            <div class="pcard-top">
+              <div class="pcard-badges">
+                <span class="pb-type sale">Shitje</span>
+              </div>
+              <div class="pcard-price-box">
+                <div class="pcard-price">€ 55.000</div>
+                <div class="pcard-price-sqm">€ 916/m²</div>
+              </div>
+            </div>
+            <h2 class="pcard-title"><a href="#kontakt">Apartament 1+1 – Qendra, Shkodër</a></h2>
+            <p class="pcard-addr">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Sheshi Gjergj Fishta, Shkodër
+            </p>
+            <p class="pcard-desc">I rinovuar komplet, kuzhinë e re, dysheme parketi. Shumë pranë sheshit kryesor. Mundësi negocimi çmimit.</p>
+            <div class="pcard-specs">
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 60 m²</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> 2 dhoma</span>
+              <span class="spec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V11a2 2 0 012-2h12a2 2 0 012 2v11"/><path d="M4 11V7a4 4 0 014-4h8a4 4 0 014 4v4"/></svg> 1 banjo</span>
+              <span class="spec">🪵 Parket</span>
+            </div>
+            <div class="pcard-footer">
+              <div class="pcard-agency">
+                <img src="images/logo.jpg" alt="Golden Home" class="agency-logo"/>
+                <span>Golden Home RE</span>
+              </div>
+              <div class="pcard-actions">
+                <button class="btn-save" aria-label="Ruaj"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Ruaj</button>
+                <a href="#kontakt" class="btn-contact">Kontakto</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /prop-list -->
+
+      <!-- No results -->
+      <div class="no-results" id="noResults" style="display:none">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <h3>Nuk u gjetën prona</h3>
+        <p>Provo të ndryshosh filtrat ose kriteret e kërkimit.</p>
+        <button onclick="resetAll()" class="btn-reset-main">Pastro të gjitha filtrat</button>
+      </div>
+
+    </div><!-- /listings-col -->
+  </div><!-- /main-grid -->
+</main>
+
+<!-- ═══ AGJENCIA ═══ -->
+<section class="agency-section" id="agjencia">
   <div class="container">
-
-    <!-- FEATURED -->
-    <div class="section-title-row">
-      <div>
-        <h2 class="section-title">Pronat e Fundit</h2>
-        <p class="section-sub">Të reja dhe të disponueshme tani</p>
+    <div class="agency-grid">
+      <div class="agency-img">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80" alt="Golden Home Office"/>
+        <div class="agency-logo-float">
+          <img src="images/logo.jpg" alt="Logo"/>
+        </div>
       </div>
-      <a href="#pronat" class="link-all">Shiko të gjitha →</a>
-    </div>
-
-    <div class="props-grid" id="propsGrid">
-
-      <!-- ─ CARD 1 ─ -->
-      <article class="pcard" data-type="shitje" data-cat="apartament" data-zone="tirane" data-price="95000">
-        <div class="pcard-img">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="Apartament Blloku"/>
-          <div class="pcard-badges">
-            <span class="pb pb-sale">Shitje</span>
-            <span class="pb pb-new">E Re</span>
-          </div>
-          <button class="ph-btn" aria-label="Ruaj">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="pcard-price">€ 95,000</div>
+      <div class="agency-text">
+        <p class="agency-eyebrow">Rreth Nesh</p>
+        <h2>Golden Home<br/>Real Estate</h2>
+        <p class="agency-lead">Me mbi 15 vite eksperiencë në tregun shqiptar të pasurive të paluajtshme, ofrojmë shërbim të plotë, transparent dhe profesional.</p>
+        <div class="agency-stats">
+          <div><b>200+</b><span>Prona Aktive</span></div>
+          <div><b>1,500+</b><span>Transaksione</span></div>
+          <div><b>98%</b><span>Kënaqësi</span></div>
+          <div><b>15+</b><span>Vite</span></div>
         </div>
-        <div class="pcard-body">
-          <h3>Apartament 2+1, Blloku</h3>
-          <p class="pcard-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Blloku, Tiranë
-          </p>
-          <div class="pcard-specs">
-            <span>🏠 3 dhoma</span>
-            <span>🚿 2 banjo</span>
-            <span>📐 95 m²</span>
-            <span>🏢 Kati 5</span>
-          </div>
-          <p class="pcard-desc">Apartament i ri, i ndritshëm me pamje nga parku. Ashensor, parking i përfshirë.</p>
-          <div class="pcard-footer">
-            <span class="pcard-ref">Ref: GH-001</span>
-            <a href="#kontakt" class="btn btn-gold-sm">Shiko Detajet</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ─ CARD 2 ─ -->
-      <article class="pcard" data-type="qira" data-cat="apartament" data-zone="tirane" data-price="450">
-        <div class="pcard-img">
-          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80" alt="Apartament Qira"/>
-          <div class="pcard-badges">
-            <span class="pb pb-rent">Qira</span>
-          </div>
-          <button class="ph-btn" aria-label="Ruaj">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="pcard-price">€ 450 <small>/muaj</small></div>
-        </div>
-        <div class="pcard-body">
-          <h3>Apartament 1+1, Rruga e Kavajës</h3>
-          <p class="pcard-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Rr. e Kavajës, Tiranë
-          </p>
-          <div class="pcard-specs">
-            <span>🏠 2 dhoma</span>
-            <span>🚿 1 banjo</span>
-            <span>📐 65 m²</span>
-            <span>📶 WiFi</span>
-          </div>
-          <p class="pcard-desc">I mobiluar plotësisht, internet fiber, ujë i ngrohtë 24 orë. Disponueshëm menjëherë.</p>
-          <div class="pcard-footer">
-            <span class="pcard-ref">Ref: GH-002</span>
-            <a href="#kontakt" class="btn btn-gold-sm">Shiko Detajet</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ─ CARD 3 ─ -->
-      <article class="pcard featured" data-type="shitje" data-cat="vile" data-zone="tirane" data-price="380000">
-        <div class="pcard-img">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Vilë Luksoze"/>
-          <div class="pcard-badges">
-            <span class="pb pb-sale">Shitje</span>
-            <span class="pb pb-premium">⭐ Premium</span>
-          </div>
-          <button class="ph-btn" aria-label="Ruaj">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="pcard-price">€ 380,000</div>
-        </div>
-        <div class="pcard-body">
-          <h3>Vilë Luksoze, Kodra e Diellit</h3>
-          <p class="pcard-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Kodra e Diellit, Tiranë
-          </p>
-          <div class="pcard-specs">
-            <span>🏠 5 dhoma</span>
-            <span>🚿 4 banjo</span>
-            <span>📐 420 m²</span>
-            <span>🏊 Pishinë</span>
-          </div>
-          <p class="pcard-desc">Vilë 3-katëshe me pishinë private, kopsht 500m², garazh 3 makinash, smart home.</p>
-          <div class="pcard-footer">
-            <span class="pcard-ref">Ref: GH-003</span>
-            <a href="#kontakt" class="btn btn-gold-sm">Shiko Detajet</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ─ CARD 4 ─ -->
-      <article class="pcard" data-type="qira" data-cat="zyre" data-zone="tirane" data-price="800">
-        <div class="pcard-img">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Zyrë"/>
-          <div class="pcard-badges">
-            <span class="pb pb-rent">Qira</span>
-            <span class="pb pb-com">Komerciale</span>
-          </div>
-          <button class="ph-btn" aria-label="Ruaj">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="pcard-price">€ 800 <small>/muaj</small></div>
-        </div>
-        <div class="pcard-body">
-          <h3>Zyrë Open-Space, Qendra</h3>
-          <p class="pcard-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Qendra Biznesit, Tiranë
-          </p>
-          <div class="pcard-specs">
-            <span>📐 120 m²</span>
-            <span>🏢 Kati 7</span>
-            <span>🅿 Parking</span>
-            <span>🛗 Lift</span>
-          </div>
-          <p class="pcard-desc">Hapësirë moderne open-space, salla konference, recepsion. Kontratat nga 6 muaj.</p>
-          <div class="pcard-footer">
-            <span class="pcard-ref">Ref: GH-004</span>
-            <a href="#kontakt" class="btn btn-gold-sm">Shiko Detajet</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ─ CARD 5 ─ -->
-      <article class="pcard" data-type="shitje" data-cat="apartament" data-zone="durres" data-price="75000">
-        <div class="pcard-img">
-          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Durrës Deti"/>
-          <div class="pcard-badges">
-            <span class="pb pb-sale">Shitje</span>
-            <span class="pb pb-sea">🌊 Pamje Deti</span>
-          </div>
-          <button class="ph-btn" aria-label="Ruaj">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="pcard-price">€ 75,000</div>
-        </div>
-        <div class="pcard-body">
-          <h3>Apartament Pamje Deti, Durrës</h3>
-          <p class="pcard-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Plazhi i Durrësit
-          </p>
-          <div class="pcard-specs">
-            <span>🏠 2 dhoma</span>
-            <span>🚿 1 banjo</span>
-            <span>📐 72 m²</span>
-            <span>🌊 50m deti</span>
-          </div>
-          <p class="pcard-desc">50 metra nga deti, ballkon panoramik, i mobiluar. Ideal si investim turistik.</p>
-          <div class="pcard-footer">
-            <span class="pcard-ref">Ref: GH-005</span>
-            <a href="#kontakt" class="btn btn-gold-sm">Shiko Detajet</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ─ CARD 6 ─ -->
-      <article class="pcard" data-type="qira" data-cat="dhome" data-zone="tirane" data-price="250">
-        <div class="pcard-img">
-          <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80" alt="Dhomë"/>
-          <div class="pcard-badges">
-            <span class="pb pb-rent">Qira</span>
-          </div>
-          <button class="ph-btn" aria-label="Ruaj">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="pcard-price">€ 250 <small>/muaj</small></div>
-        </div>
-        <div class="pcard-body">
-          <h3>Dhomë e Mobiluar, Myslym Shyri</h3>
-          <p class="pcard-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Myslym Shyri, Tiranë
-          </p>
-          <div class="pcard-specs">
-            <span>📐 25 m²</span>
-            <span>📶 WiFi</span>
-            <span>🚇 Qendra 5 min</span>
-          </div>
-          <p class="pcard-desc">Dhomë e madhe dhe e ndritshme, banjo private, kuzhinë e ndarë. Disponueshëm tani.</p>
-          <div class="pcard-footer">
-            <span class="pcard-ref">Ref: GH-006</span>
-            <a href="#kontakt" class="btn btn-gold-sm">Shiko Detajet</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ─ CARD 7 ─ -->
-      <article class="pcard" data-type="shitje" data-cat="toke" data-zone="sarande" data-price="120000">
-        <div class="pcard-img">
-          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Tokë Sarandë"/>
-          <div class="pcard-badges">
-            <span class="pb pb-sale">Shitje</span>
-            <span class="pb pb-sea">🌊 Afër Detit</span>
-          </div>
-          <button class="ph-btn" aria-label="Ruaj">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="pcard-price">€ 120,000</div>
-        </div>
-        <div class="pcard-body">
-          <h3>Tokë Ndërtimore, Ksamil</h3>
-          <p class="pcard-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Ksamil, Sarandë
-          </p>
-          <div class="pcard-specs">
-            <span>📐 800 m²</span>
-            <span>📋 Leje ndërt.</span>
-            <span>🌊 300m deti</span>
-          </div>
-          <p class="pcard-desc">Tokë 800m² me leje ndërtimore ekzistuese. Potencial turistik maksimal.</p>
-          <div class="pcard-footer">
-            <span class="pcard-ref">Ref: GH-007</span>
-            <a href="#kontakt" class="btn btn-gold-sm">Shiko Detajet</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ─ CARD 8 ─ -->
-      <article class="pcard" data-type="qira" data-cat="apartament" data-zone="vlore" data-price="350">
-        <div class="pcard-img">
-          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80" alt="Vlorë"/>
-          <div class="pcard-badges">
-            <span class="pb pb-rent">Qira</span>
-          </div>
-          <button class="ph-btn" aria-label="Ruaj">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="pcard-price">€ 350 <small>/muaj</small></div>
-        </div>
-        <div class="pcard-body">
-          <h3>Apartament 2+1, Lungomare Vlorë</h3>
-          <p class="pcard-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Lungomare, Vlorë
-          </p>
-          <div class="pcard-specs">
-            <span>🏠 3 dhoma</span>
-            <span>🚿 2 banjo</span>
-            <span>📐 88 m²</span>
-            <span>🏖️ Terrasa</span>
-          </div>
-          <p class="pcard-desc">Pranë lungomare-s, terrasa me pamje deti, i disponueshëm menjëherë.</p>
-          <div class="pcard-footer">
-            <span class="pcard-ref">Ref: GH-008</span>
-            <a href="#kontakt" class="btn btn-gold-sm">Shiko Detajet</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ─ CARD 9 ─ -->
-      <article class="pcard" data-type="shitje" data-cat="apartament" data-zone="shkoder" data-price="55000">
-        <div class="pcard-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Shkodër"/>
-          <div class="pcard-badges">
-            <span class="pb pb-sale">Shitje</span>
-          </div>
-          <button class="ph-btn" aria-label="Ruaj">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-          <div class="pcard-price">€ 55,000</div>
-        </div>
-        <div class="pcard-body">
-          <h3>Apartament 1+1, Shkodër Qendër</h3>
-          <p class="pcard-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Qendra, Shkodër
-          </p>
-          <div class="pcard-specs">
-            <span>🏠 2 dhoma</span>
-            <span>🚿 1 banjo</span>
-            <span>📐 60 m²</span>
-            <span>🪵 Parket</span>
-          </div>
-          <p class="pcard-desc">Apartament i rinovuar, kuzhinë e re, dysheme parketi. Pranë sheshit kryesor.</p>
-          <div class="pcard-footer">
-            <span class="pcard-ref">Ref: GH-009</span>
-            <a href="#kontakt" class="btn btn-gold-sm">Shiko Detajet</a>
-          </div>
-        </div>
-      </article>
-
-    </div><!-- /props-grid -->
-
-    <div class="no-results" id="noResults" style="display:none">
-      <div class="no-results-icon">🔍</div>
-      <h3>Nuk u gjetën prona</h3>
-      <p>Provo të ndryshosh kriteret e kërkimit.</p>
-      <button class="btn btn-outline-navy" onclick="resetAll()">Pastro Filtrat</button>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ZONE BANNERS ═══ -->
-<section class="zones-section" id="shitje">
-  <div class="container">
-    <div class="section-title-row">
-      <div>
-        <h2 class="section-title">Kërko sipas Qytetit</h2>
-        <p class="section-sub">Prona në çdo qytet të Shqipërisë</p>
-      </div>
-    </div>
-    <div class="zones-grid">
-      <div class="zone-card big" onclick="qFilterZone('tirane')" style="background-image:url('https://images.unsplash.com/photo-1573108457432-b7e0e5fe8ef7?w=800&q=70')">
-        <div class="zone-overlay"></div>
-        <div class="zone-info"><h3>Tiranë</h3><span>120+ prona</span></div>
-      </div>
-      <div class="zone-card" onclick="qFilterZone('durres')" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=70')">
-        <div class="zone-overlay"></div>
-        <div class="zone-info"><h3>Durrës</h3><span>35+ prona</span></div>
-      </div>
-      <div class="zone-card" onclick="qFilterZone('sarande')" style="background-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=70')">
-        <div class="zone-overlay"></div>
-        <div class="zone-info"><h3>Sarandë</h3><span>28+ prona</span></div>
-      </div>
-      <div class="zone-card" onclick="qFilterZone('vlore')" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=70')">
-        <div class="zone-overlay"></div>
-        <div class="zone-info"><h3>Vlorë</h3><span>22+ prona</span></div>
-      </div>
-      <div class="zone-card" onclick="qFilterZone('shkoder')" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=70')">
-        <div class="zone-overlay"></div>
-        <div class="zone-info"><h3>Shkodër</h3><span>15+ prona</span></div>
+        <ul class="agency-list">
+          <li>✓ Transparencë e plotë, pa tarifa të fshehura</li>
+          <li>✓ Përgjigje brenda 24 orëve</li>
+          <li>✓ Prona ekskluzive jashtë tregut publik</li>
+          <li>✓ Konsulencë juridike falas</li>
+        </ul>
+        <a href="#kontakt" class="btn-gold">Na kontaktoni</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ SERVICES ═══ -->
-<section class="services-section" id="sherbime">
+<section class="srv-section" id="sherbime">
   <div class="container">
-    <div class="section-title-row centered">
-      <div>
-        <h2 class="section-title">Shërbimet Tona</h2>
-        <p class="section-sub">Ekspertë imobiliarë me 15 vite eksperiencë</p>
-      </div>
+    <div class="srv-header">
+      <h2>Shërbimet Tona</h2>
+      <p>Gjithçka keni nevojë për pronën tuaj, nën një çati</p>
     </div>
-    <div class="srv-grid">
-      <div class="srv-card">
-        <div class="srv-num">01</div>
-        <div class="srv-icon">🏡</div>
-        <h3>Blerje Prone</h3>
-        <p>Gjejmë pronën e duhur sipas buxhetit dhe nevojave tuaja. Menaxhojmë gjithë procesin ligjor.</p>
-      </div>
-      <div class="srv-card">
-        <div class="srv-num">02</div>
-        <div class="srv-icon">🔑</div>
-        <h3>Dhënie me Qira</h3>
-        <p>Gjejmë qiramarrës të besueshëm, administrojmë pronën dhe sigurojmë pagesat mujore.</p>
-      </div>
-      <div class="srv-card">
-        <div class="srv-num">03</div>
-        <div class="srv-icon">⚖️</div>
-        <h3>Konsulencë Ligjore</h3>
-        <p>Kontrata, kadastër, hipoteka dhe çdo aspekt ligjor i transaksionit imobiliar.</p>
-      </div>
-      <div class="srv-card">
-        <div class="srv-num">04</div>
-        <div class="srv-icon">📊</div>
-        <h3>Vlerësim Prone</h3>
-        <p>Vlerësime profesionale të bazuara në analizën e thellë të tregut shqiptar.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ WHY US ═══ -->
-<section class="why-section" id="qira">
-  <div class="container why-inner">
-    <div class="why-img-wrap">
-      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80" alt="Agjenci profesionale"/>
-      <div class="why-logo-float">
-        <img src="images/logo.jpg" alt="Golden Home Logo"/>
-      </div>
-    </div>
-    <div class="why-text">
-      <p class="why-eyebrow">Pse Golden Home?</p>
-      <h2>Më Shumë se një Agjenci.<br/><span class="gold">Partneri Juaj.</span></h2>
-      <p class="why-lead">Me mbi 15 vite eksperiencë në tregun shqiptar, ofrojmë shërbim të personalizuar, transparent dhe eficent.</p>
-      <div class="why-stats">
-        <div class="wstat"><b>200+</b><span>Prona Aktive</span></div>
-        <div class="wstat"><b>1,500+</b><span>Transaksione</span></div>
-        <div class="wstat"><b>98%</b><span>Klientë të Kënaqur</span></div>
-      </div>
-      <ul class="why-checks">
-        <li><span class="wcheck">✓</span>Transparencë e plotë – pa tarifa të fshehura</li>
-        <li><span class="wcheck">✓</span>Përgjigje brenda 24 orëve</li>
-        <li><span class="wcheck">✓</span>Prona ekskluzive jo të disponueshme gjetkë</li>
-        <li><span class="wcheck">✓</span>Mbështetje juridike falas për çdo transaksion</li>
-      </ul>
-      <a href="#kontakt" class="btn btn-gold-lg">Fol me Agjentin Tonë</a>
+    <div class="srv-row">
+      <div class="srv-item"><div class="srv-icon">🏡</div><h3>Blerje Prone</h3><p>Gjejmë pronën e duhur sipas buxhetit dhe nevojave tuaja.</p></div>
+      <div class="srv-item"><div class="srv-icon">🔑</div><h3>Dhënie me Qira</h3><p>Administrojmë pronën, gjejmë qiramarrës, garantojmë pagesën.</p></div>
+      <div class="srv-item"><div class="srv-icon">⚖️</div><h3>Konsulencë Ligjore</h3><p>Kontrata, kadastër, hipoteka. Gjithçka e sigurt ligjërisht.</p></div>
+      <div class="srv-item"><div class="srv-icon">📊</div><h3>Vlerësim Prone</h3><p>Vlerësime profesionale bazuar në analizën e tregut.</p></div>
     </div>
   </div>
 </section>
@@ -552,129 +636,61 @@
 <section class="contact-section" id="kontakt">
   <div class="container">
     <div class="contact-grid">
-
-      <div class="contact-left">
-        <div class="contact-logo">
-          <img src="images/logo.jpg" alt="Golden Home Logo"/>
-        </div>
+      <div class="contact-info">
+        <img src="images/logo.jpg" alt="Golden Home" class="contact-logo"/>
         <h2>Na Kontaktoni</h2>
-        <p>Jemi të gatshëm t'ju ndihmojmë. Ekipi ynë u përgjigjet të gjitha pyetjeve tuaja.</p>
-        <div class="cinfo-list">
-          <div class="cinfo"><span class="cinfo-icon">📍</span><div><b>Adresa</b><span>Rruga Ismail Qemali, Nr.5, Tiranë</span></div></div>
-          <div class="cinfo"><span class="cinfo-icon">📞</span><div><b>Telefon</b><span>+355 69 XXX XXXX</span></div></div>
-          <div class="cinfo"><span class="cinfo-icon">✉️</span><div><b>Email</b><span>info@goldenhome.al</span></div></div>
-          <div class="cinfo"><span class="cinfo-icon">🕐</span><div><b>Oraret</b><span>E Hënë–Premte: 09:00–18:00<br/>E Shtunë: 10:00–14:00</span></div></div>
-        </div>
-        <div class="csocial">
-          <a href="#" class="cs-btn" title="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="#" class="cs-btn" title="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="#" class="cs-btn" title="WhatsApp">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </a>
+        <p>Dërgoni mesazhin tuaj dhe do t'ju përgjigjemi brenda 24 orëve.</p>
+        <div class="ci-list">
+          <div class="ci-row"><span>📍</span><div><b>Adresa</b><span>Rruga Ismail Qemali, Nr.5, Tiranë 1001</span></div></div>
+          <div class="ci-row"><span>📞</span><div><b>Telefon</b><span>+355 69 XXX XXXX</span></div></div>
+          <div class="ci-row"><span>✉️</span><div><b>Email</b><span>info@goldenhome.al</span></div></div>
+          <div class="ci-row"><span>🕐</span><div><b>Oraret</b><span>E Hënë–E Premte: 09:00–18:00<br/>E Shtunë: 10:00–14:00</span></div></div>
         </div>
       </div>
-
       <form class="contact-form" id="contactForm" novalidate>
         <h3>Dërgoni një Mesazh</h3>
-        <div class="form-row">
-          <div class="fg">
-            <label>Emri & Mbiemri *</label>
-            <input type="text" id="fname" placeholder="Arjola Kelmendi" required/>
-            <span class="ferr" id="fnameErr"></span>
-          </div>
-          <div class="fg">
-            <label>Telefoni *</label>
-            <input type="tel" id="fphone" placeholder="+355 69..." required/>
-            <span class="ferr" id="fphoneErr"></span>
-          </div>
+        <div class="cf-row">
+          <div class="cf-group"><label>Emri *</label><input type="text" id="cname" placeholder="Emri Mbiemri" required/><span class="cf-err" id="cnameErr"></span></div>
+          <div class="cf-group"><label>Telefoni *</label><input type="tel" id="cphone" placeholder="+355 69..." required/><span class="cf-err" id="cphoneErr"></span></div>
         </div>
-        <div class="fg">
-          <label>Email</label>
-          <input type="email" id="femail" placeholder="emaili@tuaj.com"/>
-          <span class="ferr" id="femailErr"></span>
+        <div class="cf-group"><label>Email</label><input type="email" id="cemail" placeholder="emaili@tuaj.com"/></div>
+        <div class="cf-row">
+          <div class="cf-group"><label>Interesi</label><select id="cinterest"><option value="">Zgjidhni…</option><option>Dua të blej</option><option>Dua të marr me qira</option><option>Dua të shes</option><option>Dua të jap me qira</option></select></div>
+          <div class="cf-group"><label>Buxheti</label><input type="text" id="cbudget" placeholder="P.sh. €100,000"/></div>
         </div>
-        <div class="form-row">
-          <div class="fg">
-            <label>Interesi im</label>
-            <select id="finterest">
-              <option value="">Zgjidhni...</option>
-              <option>Dua të blej</option>
-              <option>Dua të marr me qira</option>
-              <option>Dua të shes pronën</option>
-              <option>Dua të jap me qira</option>
-              <option>Tjetër</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label>Buxheti</label>
-            <input type="text" id="fbudget" placeholder="P.sh. €100,000"/>
-          </div>
-        </div>
-        <div class="fg">
-          <label>Mesazhi *</label>
-          <textarea id="fmsg" rows="4" placeholder="Çfarë po kërkoni? Detaje mbi pronën, zonën, buxhetin..." required></textarea>
-          <span class="ferr" id="fmsgErr"></span>
-        </div>
-        <button type="submit" class="btn btn-gold-lg w-full" id="fsubmit">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <div class="cf-group"><label>Mesazhi *</label><textarea id="cmsg" rows="4" placeholder="Çfarë po kërkoni? Tregoni detaje mbi pronën, zonën, buxhetin…" required></textarea><span class="cf-err" id="cmsgErr"></span></div>
+        <button type="submit" class="btn-gold w100" id="csubmit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           Dërgo Mesazhin
         </button>
-        <div class="fsuccess" id="fsuccess" style="display:none">✓ Mesazhi u dërgua! Do t'ju kontaktojmë brenda 24 orëve.</div>
+        <div class="cf-success" id="cfSuccess" style="display:none">✓ Faleminderit! Do t'ju kontaktojmë brenda 24 orëve.</div>
       </form>
-
     </div>
   </div>
 </section>
 
 <!-- ═══ FOOTER ═══ -->
-<footer class="footer">
+<footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
       <img src="images/logo.jpg" alt="Golden Home" class="footer-logo"/>
       <p>Agjencia juaj e besueshme për blerje, shitje dhe qira pronash në të gjithë Shqipërinë.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Navigim</h4>
-      <ul>
-        <li><a href="#kryefaqja">Kryefaqja</a></li>
-        <li><a href="#pronat">Të Gjitha Pronat</a></li>
-        <li><a href="#sherbime">Shërbimet</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Pronat</h4>
-      <ul>
-        <li><a href="#pronat">Apartamente</a></li>
-        <li><a href="#pronat">Vilë</a></li>
-        <li><a href="#pronat">Zyra & Lokale</a></li>
-        <li><a href="#pronat">Toka</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Zonat</h4>
-      <ul>
-        <li><a href="#pronat">Tiranë</a></li>
-        <li><a href="#pronat">Durrës</a></li>
-        <li><a href="#pronat">Sarandë</a></li>
-        <li><a href="#pronat">Vlorë</a></li>
-        <li><a href="#pronat">Shkodër</a></li>
-      </ul>
-    </div>
+    <div class="footer-col"><h4>Prona</h4><ul><li><a href="#listings">Apartamente për Shitje</a></li><li><a href="#listings">Vilë për Shitje</a></li><li><a href="#listings">Apartamente me Qira</a></li><li><a href="#listings">Zyra me Qira</a></li><li><a href="#listings">Toka</a></li></ul></div>
+    <div class="footer-col"><h4>Zonat</h4><ul><li><a href="#listings">Tiranë</a></li><li><a href="#listings">Durrës</a></li><li><a href="#listings">Sarandë</a></li><li><a href="#listings">Vlorë</a></li><li><a href="#listings">Shkodër</a></li></ul></div>
+    <div class="footer-col"><h4>Agjencia</h4><ul><li><a href="#agjencia">Rreth Nesh</a></li><li><a href="#sherbime">Shërbimet</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <div class="container footer-bottom-inner">
-      <p>© 2026 Golden Home Real Estate. Të gjitha të drejtat e rezervuara.</p>
-      <p>Tiranë, Shqipëri</p>
-    </div>
+    <div class="container"><p>© 2026 Golden Home Real Estate. Të gjitha të drejtat e rezervuara.</p></div>
   </div>
 </footer>
 
-<a href="#" class="btt" id="btt" title="Lart">↑</a>
+<a href="#" class="btt" id="btt">↑</a>
 
 <script src="js/main.js"></script>
 </body>
